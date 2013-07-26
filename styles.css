@@ -1,0 +1,14 @@
+body {
+  color: #fff;
+  background-color: #333;
+  font-family: Andale Mono, Courier New, Courier;
+}
+
+.host {
+  color: #0f0;
+}
+
+.folder {
+  color: #00f;
+  font-weight: bold;
+}
