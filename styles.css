@@ -4,6 +4,16 @@ body {
   font-family: Andale Mono, Courier New, Courier;
 }
 
+a {
+  color: #cc0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff0;
+}
+
 .host {
   color: #0f0;
 }
