@@ -1,14 +1,12 @@
 var contents = [
-  { skiptype: false, folder: '~ $',        text: 'whoami' },
-  { skiptype: true,  prepause: 150,        text: 'Bram Leenders' },
-
-  { skiptype: false, folder: '~ $',        text: 'cd ~/Documents/' },
-
-  { skiptype: false, folder: '~/Documents/ $',        text: 'ls -a' },
-  { skiptype: true,  prepause: 150,        text: '.  ..  aboutme.txt  projects.txt'},
+  { skiptype: false, folder: '~ $',            text: 'whoami' },
+  { skiptype: true,  prepause: 150,            text: 'Bram Leenders' },
+  { skiptype: false, folder: '~ $',            text: 'cd ~/Documents/' },
+  { skiptype: false, folder: '~/Documents/ $', text: 'ls -a' },
+  { skiptype: true,  prepause: 150,            text: '.  ..  aboutme.txt  projects.txt  contact_info.txt'},
 
   { skiptype: false, folder: '~/Documents/ $', text: 'cat aboutme.txt' },
-  { skiptype: true,  prepause: 150,        text: [
+  { skiptype: true,  prepause: 150,            text: [
     ' ____                        _                        _                       ',  
     '| __ ) _ __ __ _ _ __ ___   | |    ___  ___ _ __   __| | ___ _ __ ___         ',
     '|  _ \\| \'__/ _` | \'_ ` _ \\  | |   / _ \\/ _ \\ \'_ \\ / _` |/ _ \\ \'__/ __|',
@@ -16,9 +14,10 @@ var contents = [
     '|____/|_|  \\__,_|_| |_| |_| |_____\\___|\\___|_| |_|\\__,_|\\___|_|  |___/   ',
     '',
     'Hello, world!',
-    'I\'m Bram, and this is a demo' ]},
-  { skiptype: false, folder: '~/Documents/ $',        text: 'cat projects.txt' },
-  { skiptype: true,                        text: [
+    'I\'m Bram, a Dutch computer science student.',
+    'My interests go to coding (Ruby, JavaScript, Java) and the impact code, and technology as a whole, have on society.' ]},
+  { skiptype: false, folder: '~/Documents/ $', text: 'cat projects.txt contact_info.txt' },
+  { skiptype: true,                            text: [
     'Some of my code:',
     '  <a href="http://sciencechallenges.nl/" target="_blank">ScienceChallenges</a> website <i>(<a href="https://github.com/boersmamarcel/challengesplatform" target="_blank">view on GitHub</a>)</i>',
     '    A platform to support the ScienceChallenges project, a way to enhance higher education.',
@@ -30,7 +29,13 @@ var contents = [
     '  <a href="http://corz.org/serv/security/pajamas.php" target="_blank">MyPajamas</a> login system (~ 2010)',
     '    A PHP/MySQL authentication script, which only sends encrypted credentials (even over http), inspired by the pajamas script.',
     '    (I\'m DamnYankee/DY)',
-    ]},
+    '',
+    'Contact information ;',
+    '  - bcleenders@gmail.com',
+    '  - <a href="http://www.linkedin.com/pub/bram-leenders/42/1b0/275" target="_blank">LinkedIn</a>' ]},
+  { skiptype: true, prepause: 700,             text: [
+    '','','',
+    'Program terminated.']}
 ];
 
 var username = 'bram',
