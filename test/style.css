@@ -1,0 +1,139 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#container {
+    position: absolute;
+    background-image: url(imgs/building1.jpg);
+    background-size: cover;
+    overflow: hidden;
+    top:50%;
+    margin-right: -20%;
+
+    height:600px;
+    width:100%;
+    max-width: 1500px;
+    margin-top:-300px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rect {
+    /* Entire screen, minus one border (1px). Divide over 24 rectangles and their lines (1px) */
+    width: calc((100% - 1px) / 24 - 1px);
+    position: relative;
+    float: left;
+    background-color: rgba(0,0,0,0.2);
+    border-color: rgba(195,195,195,0.5);
+    border-width: 1px 1px 0px 0px;
+    border-style: solid;
+}
+
+.rect_light {
+    background-color: rgba(200,200,195,0.1) !important;
+}
+
+.rect_hasleftborder {
+    border-left-width: 1px !important;
+}
+
+.rect_image {
+    width: 100%;
+    display: block;
+}
+
+/*
+    http://css3.bradshawenterprises.com/cfimg/#cfimg3
+*/
+@-webkit-keyframes cf4FadeInOut {
+ 0%   { opacity:1; }
+ 11%  { opacity:1; }
+ 19%  { opacity:0; }
+ 95%  { opacity:0; }
+ 100% { opacity:1; }
+}
+
+@-moz-keyframes cf4FadeInOut {
+ 0%   { opacity:1; }
+ 11%  { opacity:1; }
+ 19%  { opacity:0; }
+ 95%  { opacity:0; }
+ 100% { opacity:1; }
+}
+
+@-o-keyframes cf4FadeInOut {
+ 0%   { opacity:1; }
+ 11%  { opacity:1; }
+ 19%  { opacity:0; }
+ 95%  { opacity:0; }
+ 100% { opacity:1; }
+}
+
+@keyframes cf4FadeInOut {
+ 0%   { opacity:1; }
+ 11%  { opacity:1; }
+ 19%  { opacity:0; }
+ 95%  { opacity:0; }
+ 100% { opacity:1; }
+}
+
+#img_container img {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  left:0;
+}
+
+#img_container img {
+  -webkit-animation-name: cf4FadeInOut;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 60s;
+
+  -moz-animation-name: cf4FadeInOut;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 60s;
+
+  -o-animation-name: cf4FadeInOut;
+  -o-animation-timing-function: ease-in-out;
+  -o-animation-iteration-count: infinite;
+  -o-animation-duration: 60s;
+
+  animation-name: cf4FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+}
+
+#img_container img:nth-of-type(1) {
+  -webkit-animation-delay: 45s;
+  -moz-animation-delay: 45s;
+  -o-animation-delay: 45s;
+  animation-delay: 45s;
+}
+#img_container img:nth-of-type(2) {
+  -webkit-animation-delay: 30s;
+  -moz-animation-delay: 30s;
+  -o-animation-delay: 30s;
+  animation-delay: 30s;
+}
+#img_container img:nth-of-type(3) {
+  -webkit-animation-delay: 15s;
+  -moz-animation-delay: 15s;
+  -o-animation-delay: 15s;
+  animation-delay: 15s;
+}
+#img_container img:nth-of-type(4) {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay: 0;
+  animation-delay: 0;
+}
