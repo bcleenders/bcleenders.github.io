@@ -3,40 +3,47 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
     <title>Bcleenders.github.io by bcleenders</title>
   </head>
 
   <body>
-<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-48541532-1']);
-	_gaq.push(['_trackPageview']);
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+    <a id="forkme_banner" href="https://github.com/bcleenders">View on GitHub</a>
+    <div class="shell">
 
-		ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Bcleenders.github.io</h1>
+            <h2>Github page</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
 
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-	</script>
-
-    <header>
-      <div class="container">
-        <h1>Bcleenders.github.io</h1>
-        <h2>Github page</h2>
-
-        <section id="downloads">
-          <a href="https://github.com/bcleenders" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
+      <div id="no-downloads">
+        <span class="inner">
+        </span>
       </div>
-    </header>
 
-    <div class="container">
+
+      <span class="banner-fix"></span>
+
+
       <section id="main_content">
         <h2>
 <a name="hello-world" class="anchor" href="#hello-world"><span class="octicon octicon-link"></span></a>Hello, world!</h2>
@@ -63,6 +70,31 @@
 
 <p>Feel free to contact me by <a href="mailto:bcleenders@gmail.com">mail</a> or to look me up on <a href="http://www.linkedin.com/pub/bram-leenders/42/1b0/275">LinkedIn</a>.</p>
       </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>Projects by <a href="https://github.com/bcleenders">bcleenders</a> can be found on <a href="https://github.com/bcleenders">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
     </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48541532-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
