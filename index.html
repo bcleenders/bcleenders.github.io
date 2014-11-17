@@ -1,138 +1,391 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>bcleenders.github.io</title>
-  </head>
-
-  <body>
-    <!-- <a id="forkme_banner" href="https://github.com/bcleenders">View on GitHub</a> -->
-    <div class="shell">
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Bcleenders.github.io</h1>
-            <h2>Github page</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <div id="no-downloads">
-        <span class="inner">
-        </span>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>bcleenders</title>
+	<meta name="description" content="Bram Leenders online CV">
+	<meta name="author" content="bcleenders">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <li><a class="smoothscroll" href="#about">About</a></li>
+	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
+            <li><a class="smoothscroll" href="#portfolio">Projects</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">I'm Bram Leenders.</h1>
+            <h3>I'm a Berlin based <span>programmer</span>, <span>master student</span> and <span>code-junky</span> learning and creating awesome new things every day. Let's <a class="smoothscroll" href="#about">start scrolling</a>
+            and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
+            <hr />
+            <ul class="social">
+               <li><a href="https://github.com/bcleenders"><i class="fa fa-github"></i></a></li>
+               <li><a href="http://de.linkedin.com/pub/bram-leenders/42/1b0/275"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+         </div>
       </div>
-
-      <span class="banner-fix"></span>
-
-      <section id="main_content">
-        <h2>
-          <a name="hello-world" class="anchor" href="#hello-world">
-            <span class="octicon octicon-link"></span>
-          </a>
-          Hello, world!
-        </h2>
-
-        <p>
-          Now that you're on this page, I think it'd be best if I gave you some info on myself...
-        </p>
-
-        <p>
-          I'm a Computer Science student, with interests ranging from programming (Ruby, Javascript, Java and Go) and cryptography to education, Canoe Polo and philosophy of technology.
-        </p>
-
-        <h3>
-        <a name="projects" class="anchor" href="#projects"><span class="octicon octicon-link"></span></a>Projects</h3>
-
-        <p>
-          To see some of my code "in the wild", check out the projects listed below:
-        </p>
-
-        <ul>
-          <li>
-            <a href="http://sciencechallenges.nl/"><strong>Sciencechallenges</strong></a> is a platform to support the Challenges initiative. It's a student initiative at Twente University to enhance education by challenging students to participate in academic challenges. You can also view the code (it's open-source!) on <a href="https://github.com/boersmamarcel/challengesplatform">GitHub</a>
-          </li>
-          <li>
-            <a href="https://github.com/bcleenders/Bramspr"><strong>Bramspr</strong></a> is an academic exercise of writing a compiler. The Bramspr compiler supports basic arithmetic and logical expressions, enumerations, functions, scoping and user-defined types. The language specification also supports arrays, but that is not implemented (at the time of writing this).
-          </li>
-          <li>
-            <a href="https://bcleenders.github.io/AI-tic-tac-toe-browser/"><strong>AI tick-tack-toe bot</strong></a> I wrote this as a small proof of concept, to show how easy it is to teach a computer simple tasks. Beware: here be dragons! I did not waste my time optimizing the code, so the results are not as good as they could have been...
-          </li>
-          <li>
-            <a href="https://github.com/bcleenders/norvig-award"><strong>Norvig Web Data Science Award submission</strong></a> A program I wrote with one of my fellow students as a submission for a big data contest organized by SURFsara and Common Crawl. When I participated, I was a second-year student and hadn't had a single course on big data yet: everything you see was taught with YouTube and man-pages.
-          </li>
-        </ul>
-
-        <p>
-          You can view more of my projects <a href="https://github.com/bcleenders">here</a>.
-        </p>
-
-        <h3>
-          <a name="publications" class="anchor" href="#publications">
-            <span class="octicon octicon-link"></span>
-          </a>
-          Publications
-        </h3>
-        <p>
-          Leenders B.C. (2014) <em>Simple and Efficient Searchable Symmetric Encryption with Application</em>. In: 20<sup>th</sup> Twente Student Conference on IT
-          <a target="_blank" href="files/bachelor_thesis.pdf">[pdf]</a> <a target="_blank" href="files/bachelor_thesis.bib">[bibTeX]</a>
-        </p>
-        <p>
-Bösch, C.T. and Peter, A. and Leenders, B. and Lim, Hoon Wei and Tang, Qiang and Wang, Huaxiong and Hartel, P.H. and Jonker, W. (2014) <em>Distributed Searchable Symmetric Encryption</em>. In: Twelfth Annual International Conference on Privacy, Security and Trust, PST 2014, 23-24 July 2014, Toronto, Canada. IEEE.
-          <a target="_blank" href="files/distributedSSE.pdf">[pdf]</a> <a target="_blank" href="files/distributedSSE.bib">[bibTeX]</a>
-        </p>
-        
-        <h3>
-          <a name="contact" class="anchor" href="#contact">
-            <span class="octicon octicon-link"></span>
-          </a>
-          Contact
-        </h3>
-        <p>
-          Feel free to contact me by mail (<a href="mailto:bcleenders@gmail.com">bcleenders@gmail.com</a>) or to look me up on <a href="http://www.linkedin.com/pub/bram-leenders/42/1b0/275">LinkedIn</a>.
-        </p>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>Projects by <a href="https://github.com/bcleenders">bcleenders</a> can be found on <a href="https://github.com/bcleenders">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-    </div>
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-48541532-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
-
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  </body>
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+      </p>
+   </header> <!-- Header End -->
+   <!-- About Section
+   ================================================== -->
+   <section id="about">
+      <div class="row">
+         <div class="three columns">
+            <img class="profile-pic"  src="images/profilepic.jpg" alt="" />
+         </div>
+         <div class="nine columns main-col">
+            <h2>About Me</h2>
+            <p class="drop-cap">
+               I am a masters student in the EIT Masterschool, doing the ICT innovation master. Currently, I study Distributed Systems and Services at Technische Universit&auml;t Berlin. Next year, I will continue my master at KTH in Stockhol and further specialize in Data Intensive Computing.
+            </p>
+            <p>
+               I am always open for interesting new ideas, challenges and opportunities. If you have one of these, or just feel like contacting me, then please do not hesistate to get in contact.
+            </p>
+            <div class="row">
+               <div class="columns contact-details">
+                  <h2>Contact Details</h2>
+                  <p class="address">
+						   <span>Bram Leenders</span><br>
+						   <span>Berlin area, Germany</span><br>
+                     <span>+49 15 73 79 76 80</span><br>
+                     <span class="emailadres_confuscated"></span>
+					   </p>
+               </div>
+               <div class="columns download">
+                  <p>
+                     <a href="pdf/cv.pdf" target="_blank" class="button"><i class="fa fa-download"></i>Download Resume</a>
+                  </p>
+               </div>
+            </div> <!-- end row -->
+         </div> <!-- end .main-col -->
+         <div class="row">
+            <div class="twelve columns">
+               <br /><br />
+            </div>
+         </div>
+         <div class="row">
+            <div class="twelve columns">
+               <p class="scrolldown">
+                  <a class="smoothscroll" href="#resume"><i class="icon-down-circle"></i></a>
+               </p>
+            </div>
+         </div>
+      </div>
+   </section> <!-- About Section End-->
+   <!-- Resume Section
+   ================================================== -->
+   <section id="resume">
+      <!-- Education
+      ----------------------------------------------- -->
+      <div class="row education">
+         <div class="three columns header-col">
+            <h1><span>Education</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>Technische Universit&auml;t Berlin</h3>
+                  <p class="info">Master ICT Innovation - Cloud Computing and Services <span>&bull;</span> <em class="date">2014-2015</em></p>
+                  <p>
+                     The EIT ICT Labs Masters Programme is a two-year double degree programme with eight technical majors and a Minor in Innovation &amp; Entrepreneurship.
+                  </p>
+                  <p>
+                     My major, Cloud Computing and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services. An essential part of the programme are the Innovation &amp; Entrepreneurship courses. These courses provide an introduction to business and management.
+                  </p>
+               </div>
+            </div> <!-- item end -->
+         </div> <!-- main-col end -->
+         <div class="nine columns main-col">
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>University of Twente</h3>
+                  <p class="info">Bachelor Computer Science <span>&bull;</span> <em class="date">2011-2014</em></p>
+                  <p>
+                     During my studies at the University of Twente, I also completed the Excellence Course Mathematics (Honours programme).
+                  </p>
+               </div>
+            </div> <!-- item end -->
+         </div> <!-- main-col end -->
+      </div> <!-- End Education -->
+       <!-- Publications
+      ----------------------------------------------- -->
+      <div class="row skill">
+         <div class="three columns header-col">
+            <h1><span>Publications</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <p>
+               B&ouml;sch, C.T. and Peter, A. and Leenders, B. and Lim, Hoon Wei and Tang, Qiang and Wang, Huaxiong and Hartel, P.H. and Jonker, W. (2014) <em>Distributed Searchable Symmetric Encryption</em>. In: Twelfth Annual International Conference on Privacy, Security and Trust, PST 2014, 23-24 July 2014, Toronto, Canada. IEEE.
+               <a target="_blank" href="pdf/distributedSSE.pdf">[pdf]</a> 
+               <a target="_blank" href="bibtex/distributedSSE.bib">[bibTeX]</a>
+            </p>
+            <p>
+               <strong>Bachelor thesis:</strong> Leenders, B. (2014) <em>Simple and Efficient Searchable Symmetric Encryption with Application</em>. In: 20<sup>th</sup> Twente Student Conference on IT
+               <a target="_blank" href="pdf/bachelor_thesis.pdf">[pdf]</a> 
+               <a target="_blank" href="bibtex/bachelor_thesis.bib">[bibTeX]</a>
+            </p>
+         </div> <!-- main-col end -->
+      </div> <!-- End Publications -->
+      <!-- Skills
+      ----------------------------------------------- -->
+      <!--<div class="row skill">
+         <div class="three columns header-col">
+            <h1><span>Skills</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <p>
+               These are some of the things I've been working with over the last few years.
+            </p>
+				<div class="bars">
+				   <ul class="skills">
+					   <li><span class="bar-expand java"></span><em>Java</em></li>
+                  <li><span class="bar-expand webdevelopment"></span><em>Web development</em></li>
+                  <li><span class="bar-expand databases"></span><em>Databases</em></li>
+						<li><span class="bar-expand go"></span><em>Go</em></li>
+					</ul>
+				</div><!-- end skill-bars - ->
+			</div> <!-- main-col end -->
+      </div> <!-- End skills -->
+   </section> <!-- Resume Section End-->
+   <!-- Portfolio Section
+   ================================================== -->
+   <section id="portfolio">
+      <div class="row">
+         <div class="twelve columns collapsed">
+            <h1>Check Out Some of My Projects.</h1>
+            <!-- portfolio-wrapper -->
+            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+          	   <div class="columns portfolio-item">
+                  <div class="item-wrap">
+                     <a href="#modal-01" title="">
+                        <img alt="" src="images/portfolio/sciencechallengeslogo.png">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+          					      <h5>ScienceChallenges</h5>
+                              <p>Design project</p>
+          					   </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+                  </div>
+          		</div> <!-- item end -->
+               <div class="columns portfolio-item">
+                  <div class="item-wrap">
+                     <a href="#modal-02" title="">
+                        <img alt="" src="images/portfolio/antlr.jpeg">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+          					      <h5>Bramspr</h5>
+                              <p>Home-made compiler to Java bytecode</p>
+          					   </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+                  </div>
+          		</div> <!-- item end -->
+               <div class="columns portfolio-item">
+                  <div class="item-wrap">
+                     <a href="#modal-03" title="">
+                        <img alt="" src="images/portfolio/database.jpg">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+          					      <h5>Mini-DBS</h5>
+                              <p>Simplified SQL Database</p>
+          					   </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+                  </div>
+          		</div> <!-- item end -->
+               <div class="columns portfolio-item">
+                  <div class="item-wrap">
+                     <a href="#modal-04" title="">
+                        <!-- for the image: thank you http://commons.wikimedia.org/wiki/File%3AHAL9000_Better_Reflection.svg -->
+                        <img alt="" src="images/portfolio/ai.png">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+          					      <h5>AI bot</h5>
+                              <p>Simple reinforcement-learning bot.</p>
+          					   </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+                  </div>
+          		</div> <!-- item end -->
+            </div> <!-- portfolio-wrapper end -->
+         </div> <!-- twelve columns end -->
+         <!-- Modal Popup
+	      --------------------------------------------------------------- -->
+         <div id="modal-01" class="popup-modal mfp-hide">
+		      <img class="scale-with-grid" src="images/portfolio/modals/m-sciencechallengeslogo.png" alt="" />
+		      <div class="description-box">
+			      <h4>ScienceChallenges Platform</h4>
+			      <p>
+                  With a group of four students, we developed a web application from scratch. We set up a full development and testing environment to streamline our tasks. Everything is open-source, to encourage others to use it and adapt it to their wishes.
+               </p>
+               <span class="categories">
+                  <i class="fa fa-tag"></i>
+                  Webdesign, Webdesign
+               </span>
+		      </div>
+            <div class="link-box">
+               <a href="https://github.com/boersmamarcel/challengesplatform">Details</a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- modal-01 End -->
+         <div id="modal-02" class="popup-modal mfp-hide">
+		      <img class="scale-with-grid" src="images/portfolio/modals/m-bramspr.png" alt="" />
+		      <div class="description-box">
+			      <h4>Bramspr compiler</h4>
+			      <p>
+                  Together with <a href="https://nl.linkedin.com/in/jasperdriessens" target="_blank">Jasper Driessens</a>, I wrote a compiler using <a href="http://www.antlr.org/" target="_blank">ANTLR</a> and <a href="http://asm.ow2.org/" target="_blank">ASM</a>. It compiles the Bramspr language, which Jasper and I developed from scratch, and supports functions, enumerations, structs, arrays(partially) and more... Because we compile to <abbr title="Java Bytecode">JBC</abbr>, our compiled Bramspr code is fully cross-platform.
+               </p>
+               <span class="categories"><i class="fa fa-tag"></i>Java, Compilers, JVM</span>
+		      </div>
+            <div class="link-box">
+               <a href="https://github.com/bcleenders/Bramspr">Details</a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- modal-02 End -->
+         <div id="modal-03" class="popup-modal mfp-hide">
+		      <img class="scale-with-grid" src="images/portfolio/modals/m-databasecode.png" alt="" />
+		      <div class="description-box">
+			      <h4>Mini-DBS</h4>
+			      <p>
+                  I am currently working on a simplified SQL database with a group of two other students. Our implementation includes data storage, caching, indexing and query planning, execution, optimization and more...
+               </p>
+               <span class="categories"><i class="fa fa-tag"></i>Databases, Java</span>
+		      </div>
+            <div class="link-box">
+               <a href="#">Details</a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- modal-03 End -->
+         <div id="modal-04" class="popup-modal mfp-hide">
+		      <img class="scale-with-grid" src="images/portfolio/modals/m-ai.png" alt="" />
+		      <div class="description-box">
+			      <h4>AI bot</h4>
+			      <p>
+                  A very simple bot, originally written to run on Node.JS but ported to the browser. It uses reinforcement learning to master a game.
+               </p>
+               <p>
+                  It's just a fun toy that I wrote in a day for an AI course during my bachelors.
+               </p>
+               <span class="categories"><i class="fa fa-tag"></i>Artificial Intelligence, javascript, Node.JS</span>
+		      </div>
+            <div class="link-box">
+               <a href="http://bcleenders.github.io/AI-tic-tac-toe-browser/">Details</a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- modal-04 End -->
+      </div> <!-- row End -->
+   </section> <!-- Portfolio Section End-->
+   <!-- Call-To-Action Section
+   ================================================== -->
+   <section id="call-to-action">
+      <div class="row">
+         <div class="seven columns">
+            <h2>Still reading?</h2>
+            <p>
+               Let me know if you want to get in contact...<br />
+               <span class="emailadres_confuscated"></span>
+            </p>
+         </div>
+      </div>
+   </section> <!-- Call-To-Action Section End-->
+   <!-- Testimonials Section
+   ================================================== -->
+   <section id="testimonials">
+      <div class="text-container">
+         <div class="row">
+            <div class="two columns header-col">
+               <h1><span>Client Testimonials</span></h1>
+            </div>
+            <div class="ten columns flex-container">
+               <div class="flexslider">
+                  <ul class="slides">
+                     <li>
+                        <blockquote>
+                           <p>
+                              By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest.
+                           </p>
+                           <cite>Confucius</cite>
+                        </blockquote>
+                     </li> <!-- slide ends -->
+                     <li>
+                        <blockquote>
+                           <p>
+                              You don't become great by trying to be great. You become great by wanting to do something, and then doing it so hard that you become great in the process.
+                           </p>
+                           <cite>Randall Munroe (<a href="http://xkcd.com/896/" target="_blank">XKCD</a>)</cite>
+                        </blockquote>
+                     </li> <!-- slide ends -->
+                  </ul>
+               </div> <!-- div.flexslider ends -->
+            </div> <!-- div.flex-container ends -->
+         </div> <!-- row ends -->
+       </div>  <!-- text-container ends -->
+   </section> <!-- Testimonials Section End-->
+   <!-- Contact Section
+   ================================================== -->
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="social-links">
+               <li><a href="https://github.com/bcleenders"><i class="fa fa-github"></i></a></li>
+               <li><a href="http://de.linkedin.com/pub/bram-leenders/42/1b0/275"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+            <ul class="copyright">
+               <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a> &copy; Copyright 2014 CeeVee</li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script type="text/javascript">
+      var places = $("span.emailadres_confuscated");
+      var e = "eenders@gm";
+      e = "bcl" + e + "ail.co" + ("notmyemail"[3]);
+      for (var i = 0; i < places.length; i++) {
+         places[i].innerHTML = e;
+      };
+   </script>
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/init.js"></script>
 </html>
