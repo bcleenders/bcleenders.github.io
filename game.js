@@ -63,7 +63,7 @@ var width = 8;
 var space = 4;
 var numX = ctx.canvas.width/(width + space) | 0;
 var numY = ctx.canvas.height/(width + space) | 0;
-var refreshTime = 20;
+var refreshTime = 120;
 
 // Define colors of life and dead cells
 var colors = [
@@ -143,15 +143,15 @@ var glider = [
 ];
 
 var gosperGlidingGun = [
-	[ , , , , , , , , , , , , , , , , , , , , , , , ,1, , , , , , , , , , , ],
-	[ , , , , , , , , , , , , , , , , , , , , , ,1, ,1, , , , , , , , , , , ],
+	[ , , , , , , , , , , , , , , , , , , , , , , , ,1, , , , , , , , , , ,0],
+	[ , , , , , , , , , , , , , , , , , , , , , ,1, ,1, , , , , , , , , , ,0],
 	[ , , , , , , , , , , , ,1,1, , , , , , ,1,1, , , , , , , , , , , , ,1,1],
 	[ , , , , , , , , , , ,1, , , ,1, , , , ,1,1, , , , , , , , , , , , ,1,1],
-	[1,1, , , , , , , , ,1, , , , , ,1, , , ,1,1, , , , , , , , , , , , , , ],
-	[1,1, , , , , , , , ,1, , , ,1, ,1,1, , , , ,1, ,1, , , , , , , , , , , ],
-	[ , , , , , , , , , ,1, , , , , ,1, , , , , , , ,1, , , , , , , , , , , ],
-	[ , , , , , , , , , , ,1, , , ,1, , , , , , , , , , , , , , , , , , , , ],
-	[ , , , , , , , , , , , ,1,1, , , , , , , , , , , , , , , , , , , , , , ]
+	[1,1, , , , , , , , ,1, , , , , ,1, , , ,1,1, , , , , , , , , , , , , ,0],
+	[1,1, , , , , , , , ,1, , , ,1, ,1,1, , , , ,1, ,1, , , , , , , , , , ,0],
+	[ , , , , , , , , , ,1, , , , , ,1, , , , , , , ,1, , , , , , , , , , ,0],
+	[ , , , , , , , , , , ,1, , , ,1, , , , , , , , , , , , , , , , , , , ,0],
+	[ , , , , , , , , , , , ,1,1, , , , , , , , , , , , , , , , , , , , , ,0]
 ];
 
 var lightweightSpaceship = [
@@ -212,7 +212,7 @@ var random = function(sizex, sizey, oneFraction) {
 */
 addShape(glider, 100, 0);
 addShape(glider, 50, numY-10);
-addShape(flipVertical(glider), 40, 20);
+// addShape(flipVertical(glider), 40, 20);
 
 addShape(gosperGlidingGun, 5, 5);
 addShape(flipVertical(gosperGlidingGun), 9, 60);
@@ -223,6 +223,13 @@ addShape(lightweightSpaceship, 12, 34);
 
 addShape(transpose(lightweightSpaceship), numX-10, numY-10);
 addShape(flipVertical(transpose(lightweightSpaceship)), numX-30, 10);
+
+addShape(transpose(lightweightSpaceship), numX-10, 10);
+addShape(transpose(lightweightSpaceship), numX-20, 30);
+addShape(nextGen(transpose(lightweightSpaceship)), numX-20, 40);
+addShape(flipHorizontal(transpose(lightweightSpaceship)), numX-30, 25);
+
+addShape(flipHorizontal(gosperGlidingGun), numX - 60, numY - 20);
 
 addShape(rosetta, 10, 85);
 addShape(gosperGlidingGun, 14, 85 + rosetta.length + 20);
