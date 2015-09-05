@@ -109,7 +109,7 @@ var addShape = function(shape, offsetX, offsetY) {
 	for(var y = 0; y < shape.length && (y+offsetY)<numY; y++) {
 		for(var x = 0; x < shape[y].length && (x+offsetX) < numX; x++) {
 			// Undefined is 0
-			gameBoard[x + offsetX][y + offsetY] = (shape[y][x] === 1) ? 1 : 0;
+			gameBoard[(x + offsetX + numX) % numX][(y + offsetY + numY) % numY] = (shape[y][x] === 1) ? 1 : 0;
 		}
 	}
 };
@@ -247,7 +247,7 @@ addShape(rosetta, rosetta[0].length + 22, 142);
 // Add a bunch of random fields
 function addRandom(board) {
 	console.log("Adding random shape.");
-	
+
 	var yOffset = 100 + window.innerHeight/(width + space) | 0;
 	var numRandShapes = 25;
 	// Select a random basis shape
@@ -264,10 +264,10 @@ function addRandom(board) {
 	var offsetX = Math.random()*numX | 0;
 	var offsetY = yOffset + Math.random()*(numY - yOffset) | 0;
 
-	for(var y = 0; y < shape.length && (y+offsetY)<numY; y++) {
-		for(var x = 0; x < shape[y].length && (x+offsetX) < numX; x++) {
+	for(var y = 0; y < shape.length; y++) {
+		for(var x = 0; x < shape[y].length; x++) {
 			// Undefined is 0
-			board[x + offsetX][y + offsetY] = (shape[y][x] === 1) ? 1 : 0;
+			board[(x + offsetX) % numX][(y + offsetY) % numY] = (shape[y][x] === 1) ? 1 : 0;
 		}
 	}
 
@@ -277,7 +277,7 @@ function addRandom(board) {
 
 var keepAlive = function(board, changed) {
 	var changed_percentage = Math.round(100*(next.changed / (numX * numY)))/100
-	console.log("Changed: " + next.changed + " -> " + changed_percentage + "%");
+	// console.log("Changed: " + next.changed + " -> " + changed_percentage + "%");
 
 	if(changed_percentage < 0.02) {
 		return addRandom(board);
