@@ -1,141 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="nanoscroller.css">
+	<link rel="stylesheet" href="./css/nanoscroller.css">
+	<link rel="stylesheet" href="./css/flags/flag-icon.css">
 </head>
 <body>
 
-<div id="world-container">
-	<canvas id="world" class="center">
-	Your browser does not support the canvas element.
-	</canvas>
-</div>
-
-<div id="content" class="nano">
+<div class="nano">
 	<div class="nano-content">
-
-	<div class="spacer">
-
-		<div class="block main-block">
-			<h1>I'm Bram Leenders.</h1>
-
-		    <h5>
-		    	I'm a Berlin based <strong>programmer</strong>, <strong>master student</strong> and <strong>code-junky</strong> learning and creating awesome new things every day.
-			</h5>
-			<div class="center">
-				<a href="#about" class="slowLink">
-					<i id="scrollDown" class="fa fa-5x fa-chevron-circle-down"></i></p>
-				</a>
-			</div>
+		<div id="world-container">
+			<canvas id="world">
+				Your browser does not support the canvas element.
+			</canvas>
 		</div>
+		
+		<div id="content">
+			<div class="spacer">
+				<div class="block main-block">
+					<h1>I'm Bram Leenders.</h1>
 
+				    <h5>
+				    	I'm a Stockholm based <strong>programmer</strong>, <strong>master student</strong> and <strong>code-junky</strong> learning and creating awesome new things every day.
+					</h5>
+
+					<div class="center">
+						<a class="iconlink" href="#about" class="slowLink">
+							<i id="scrollDown" class="fa fa-5x fa-chevron-circle-down"></i></p>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="spacer-m"></div>
+		    
+		    <div class="block" id="about">
+		    	<h3>About me</h3>
+		    	<p>
+		    		I am a masters student in the EIT Masterschool, doing the ICT innovation master. Currently, I study Distributed Systems and Services at Technische Universit&auml;t Berlin. Next year, I will continue my master at KTH in Stockholm and further specialize in Data Intensive Computing.
+		    	</p>
+		    	<p>
+					I am always open for interesting new ideas, challenges and opportunities. If you have one of these, or just feel like contacting me, then please do not hesistate to get in contact.
+		    	</p>
+		    </div>
+
+		    <div class="block" id="education">
+		    	<h3>Education</h3>
+		    	 <div class="row item">
+					<p class="university">KTH Royal Institute of Technology <span class="flag-icon flag-icon-se"></span></p>
+					<p class="info">Master ICT Innovation - Data Intensive Computing <span>&bull;</span> <em class="date">2015-2016</em></p>
+					<p>
+						The EIT ICT Labs Masters Programme is a two-year double degree programme. It combines Innovation &amp; Entrepreneurship with technical know-how.
+					</p>
+					<p>
+						My technical specialisation, Data Intensive Computing, emphasizes the combination of fundamental principles of distributed computing with modern methods of software systems design.
+					</p>
+		        </div> <!-- item end -->
+
+		        <div class="row item">
+					<p class="university">Technische Universit&auml;t Berlin <span class="flag-icon flag-icon-de"></span></p>
+					<p class="info">Master ICT Innovation - Distributed Systems and Services <span>&bull;</span> <em class="date">2014-2015</em></p>
+					<p>
+						My major, Distributed Systems and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services.
+					</p>
+		        </div> <!-- item end -->
+		        
+		        <div class="row item">
+					<p class="university">University of Twente <span class="flag-icon flag-icon-nl"></span></p>
+					<p class="info">Bachelor Computer Science <span>&bull;</span> <em class="date">2011-2014</em></p>
+					<p>
+						During my studies at the University of Twente, I also completed the Excellence Course Mathematics.
+					</p>
+		        </div> <!-- item end -->
+		    </div>
+
+		    <div class="block" id="publications">
+		    	<h3>Publications</h3>
+		    	<p>
+		           B&ouml;sch, C.T. and Peter, A. and Leenders, B. and Lim, Hoon Wei and Tang, Qiang and Wang, Huaxiong and Hartel, P.H. and Jonker, W. (2014) <em>Distributed Searchable Symmetric Encryption</em>. In: Twelfth Annual International Conference on Privacy, Security and Trust, PST 2014, 23-24 July 2014, Toronto, Canada. IEEE.
+		           <a target="_blank" href="pdf/distributedSSE.pdf">[pdf]</a> 
+		           <a target="_blank" href="bibtex/distributedSSE.bib">[bibTeX]</a>
+		        </p>
+		        <p>
+		           <strong>Bachelor thesis:</strong> Leenders, B. (2014) <em>Simple and Efficient Searchable Symmetric Encryption with Application</em>. In: 20<sup>th</sup> Twente Student Conference on IT
+		           <a target="_blank" href="pdf/bachelor_thesis.pdf">[pdf]</a> 
+		           <a target="_blank" href="bibtex/bachelor_thesis.bib">[bibTeX]</a>
+		        </p>
+		    </div>
+
+		    <div class="block" id="experience">
+		    	<h3>Experience</h3>
+		    	<p>
+		    		I did some cool programming projects, for example:
+		    		<ul>
+		    			<li> Building an SQL database: data storage, caching, indexing and query planning, execution, optimization and more...
+	    				<li> Using machine learning (LDA and k-means + Word2Vec) to detect topics and trends on Hacker News
+	    				<li> Designing a new computer language and building a compiler for it (it compiles to JVM bytecode)
+		    		</ul>
+		    		You can find all public projects on my <a href="https://github.com/bcleenders" target="_blank">Github page</a>.
+		    	</p>
+		    </div>
+
+			<div class="block" id="links">
+				<h3>Links</h3>
+				<p>
+					Here you can find me online:
+				</p>
+				<div class="center">
+			    	<p>
+			    		<a class="iconlink" href="https://github.com/bcleenders" target="_blank">
+			    			<i class="fa fa-5x fa-github"></i>
+			    		</a>
+			    		<i class="fa fa-fw">&nbsp;</i>
+			    		<i class="fa fa-fw">&nbsp;</i>
+						<a class="iconlink" href="https://de.linkedin.com/pub/bram-leenders/42/1b0/275" target="_blank">
+							<i class="fa fa-5x fa-linkedin"></i>
+						</a>
+			    	</p>
+			    </div>
+		    </div>
+
+		    <div class="spacer-s"></div>
+
+		    <div class="block" id="links">
+				<div class="center">
+					<a class="iconlink" href="#about" class="slowLink">
+						<i id="scrollDown" class="fa fa-5x fa-chevron-circle-up"></i></p>
+					</a>
+				</div>
+		    </div>
+		    
+		    <div class="spacer-s"></div>
+	    </div>
 	</div>
-    
-    <div class="block" id="about">
-    	<h3>About me</h3>
-    	<p>
-    		I am a masters student in the EIT Masterschool, doing the ICT innovation master. Currently, I study Distributed Systems and Services at Technische Universit&auml;t Berlin. Next year, I will continue my master at KTH in Stockholm and further specialize in Data Intensive Computing.
-    	</p>
-    	<p>
-			I am always open for interesting new ideas, challenges and opportunities. If you have one of these, or just feel like contacting me, then please do not hesistate to get in contact.
-    	</p>
-    </div>
-
-    <div class="block" id="education">
-    	<h3>Education</h3>
-    	 <div class="row item">
-			<h5>KTH Royal Institute of Technology</h5>
-			<p class="info">Master ICT Innovation - Data Intensive Computing <span>&bull;</span> <em class="date">2015-2016</em></p>
-			<p>
-				The EIT ICT Labs Masters Programme is a two-year double degree programme with eight technical majors and a Minor in Innovation &amp; Entrepreneurship.
-			</p>
-			<p>
-				My specialisation, Data Intensive Computing, emphasizes the combination of fundamental principles of distributed computing with modern methods of software systems design.
-			</p>
-        </div> <!-- item end -->
-        <div class="row item">
-			<h5>Technische Universit&auml;t Berlin</h5>
-			<p class="info">Master ICT Innovation - Distributed Systems and Services <span>&bull;</span> <em class="date">2014-2015</em></p>
-			<p>
-				The EIT ICT Labs Masters Programme is a two-year double degree programme with eight technical majors and a Minor in Innovation &amp; Entrepreneurship.
-			</p>
-			<p>
-				My major, Distributed Systems and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services. An essential part of the programme are the Innovation &amp; Entrepreneurship courses. These courses provide an introduction to business and management.
-			</p>
-        </div> <!-- item end -->
-        <div class="row item">
-			<h5>University of Twente</h5>
-			<p class="info">Bachelor Computer Science <span>&bull;</span> <em class="date">2011-2014</em></p>
-			<p>
-				During my studies at the University of Twente, I also completed the Excellence Course Mathematics (Honours programme).
-			</p>
-        </div> <!-- item end -->
-    </div>
-
-    <div class="block" id="publications">
-    	<h3>Publications</h3>
-    	<p>
-           B&ouml;sch, C.T. and Peter, A. and Leenders, B. and Lim, Hoon Wei and Tang, Qiang and Wang, Huaxiong and Hartel, P.H. and Jonker, W. (2014) <em>Distributed Searchable Symmetric Encryption</em>. In: Twelfth Annual International Conference on Privacy, Security and Trust, PST 2014, 23-24 July 2014, Toronto, Canada. IEEE.
-           <a target="_blank" href="pdf/distributedSSE.pdf">[pdf]</a> 
-           <a target="_blank" href="bibtex/distributedSSE.bib">[bibTeX]</a>
-        </p>
-        <p>
-           <strong>Bachelor thesis:</strong> Leenders, B. (2014) <em>Simple and Efficient Searchable Symmetric Encryption with Application</em>. In: 20<sup>th</sup> Twente Student Conference on IT
-           <a target="_blank" href="pdf/bachelor_thesis.pdf">[pdf]</a> 
-           <a target="_blank" href="bibtex/bachelor_thesis.bib">[bibTeX]</a>
-        </p>
-    </div>
-
-    <div class="block" id="experience">
-    	<h3>Experience</h3>
-    	<p>
-    		
-    	</p>
-    </div>
-
-	<div class="block" id="links">
-		<h3>Links</h3>
-    	<p>
-    		<a href="https://github.com/bcleenders"><i class="fa fa-5x fa-github"></i></a>
-			<a href="https://de.linkedin.com/pub/bram-leenders/42/1b0/275"><i class="fa fa-5x fa-linkedin"></i></a>
-    	</p>
-    </div>
-    </div>
 </div>
 
-<script src="game.js"></script>
 <script src="jquery.min.js"></script>
+<script src="game.js"></script>
 <script src="nanoscroller.min.js"></script>
 <script type="text/javascript">
-var scroller;
+	$(document).ready(
+		function() { 
+			$(".nano").nanoScroller();
 
-$(document).ready(
-	function() { 
-		// $(".nano").nanoScroller();
+			$(document).ready(function(){
+				$('a[href*=#]').each(function() {
+					$(this).context.onclick = function (e) {
+					    e.preventDefault();
 
-		$(document).ready(function(){
-			$('.slowLink').on('click', function (e) {
-			    e.preventDefault();
-
-			    var target = this.hash;
-			    var $target = $(target);
-
-			    $('nano-content').stop().animate(
-			    	{'scrollTop': $target.offset().top}, 
-			    	900, 'swing', 
-			    	function () {
-			    		window.location.hash = target;
-			    	});
+					    var el = $('.nano-content');
+						el.animate({ 'scrollTop': $(this.hash).offset().top }, '400', 'swing');
+					};
+				});
 			});
-		});
-	}
-);
-
-// $("#scrollDown").click(function(){
-// 	$(".nano").nanoScroller({ scrollTo: $('#links') });
-// })
+		}
+	);
 </script>
 
 </body>

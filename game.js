@@ -53,16 +53,17 @@ var nextGen = function(board) {
 
 var canvas = document.getElementById("world");
 var ctx = canvas.getContext("2d");
+// var ctx = document.getCSSCanvasContext("2d", "world", 300, 300);
 
 ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
+ctx.canvas.height = Math.max(window.innerHeight, $('#content')[0].scrollHeight);
 
 // Get some basic sizes
 var width = 8;
-var space = 5;
+var space = 4;
 var numX = ctx.canvas.width/(width + space) | 0;
 var numY = ctx.canvas.height/(width + space) | 0;
-var refreshTime = 200;
+var refreshTime = 20;
 
 // Define colors of life and dead cells
 var colors = [
@@ -118,15 +119,15 @@ var flipHorizontal = function(arr) {
 	return output;
 }
 
-var transpose = function(arr){
+var transpose = function(arr) {
 	var output = [];
-	for(var i = 0; i < arr[0].length; i++) {
-		output[i] = [];
-	}
+	fail = arr;
 
-	for(var x = 0; x < arr.length; x++) {
-		for(var y = 0; y < arr[x].length; y++) {
-			output[y][x] = arr[x][y];
+	for(var x = 0; x < arr[0].length; x++) {
+		output[x] = [];
+
+		for(var y = 0; y < arr.length; y++) {
+			output[x][y] = arr[y][x];
 		}
 	}
 	return output;
@@ -160,6 +161,52 @@ var lightweightSpaceship = [
 	[ ,1,1,1,1]
 ];
 
+// The top-left of the rosetta code
+var rosetta = [
+	[1, , , , , , , , , , , , , , , , , , ,0],
+	[ ,1, , , , , , , , , , , , , , , , , ,0],
+	[ , ,1, , , , , , , , , , , , , , , , ,0],
+	[ , , ,1, , , , , , , , , , , , , , , ,0],
+	[ , , , ,1, , , , , , , , , , , , , , ,0],
+	[ , , , , ,1, , , , , , , , , , , , , ,0],
+	[ , , , , , ,1, , , , , , , , , , , , ,0],
+	[ , , , , , , ,1, , , , , , , , , , , ,0],
+	[ , , , , , , , ,1, , , , , , , , , , ,0],
+	[ , , , , , , , , ,1, , , , , , , , , ,0],
+	[ , , , , , , , , , ,1, , , , , , , , ,0],
+	[ , , , , , , , , , , ,1, , , , , , , ,0],
+	[ , , , , , , , , , , , ,1, , , , , , ,0],
+	[ , , , , , , , , , , , , ,1, , , , , ,0],
+	[ , , , , , , , , , , , , , ,1, , , , ,0],
+	[ , , , , , , , , , , , , , , ,1, , , ,0],
+	[ , , , , , , , , , , , , , , , ,1, , ,0],
+	[ , , , , , , , , , , , , , , , , ,1,1,1],
+	[ , , , , , , , , , , , , , , , , ,1,1,1],
+	[ , , , , , , , , , , , , , , , , ,1,1,0]
+];
+for(var i = 0; i < rosetta.length; i++) {
+	for(var j = 0; j < rosetta[i].length; j++) {
+		rosetta[i][j] = rosetta[i][j] === 1 ? 1 : 0;
+	}
+}
+for(var i = 0; i < rosetta.length; i++) {
+	rosetta[i] = rosetta[i].concat(rosetta[i].slice().reverse())
+};
+rosetta = rosetta.concat(rosetta.slice().reverse());
+
+var random = function(sizex, sizey, oneFraction) {
+	var output = [];
+
+	for(var y = 0; y < sizey; y++) {
+		output[y] = [];
+		for(var x = 0; x < sizex; x++) {
+
+			output[y][x] = (Math.random() < oneFraction) ? 1 : 0;
+		}
+	}
+	return output;
+}
+
 /*
 	Add shapes to the gameboard
 */
@@ -174,8 +221,33 @@ addShape(lightweightSpaceship, 11, 22);
 addShape(flipHorizontal(lightweightSpaceship), numX - 100, 28);
 addShape(lightweightSpaceship, 12, 34);
 
-addShape(transpose(lightweightSpaceship), numX-10, numY-10)
-addShape(flipVertical(transpose(lightweightSpaceship)), numX-30, numY-10)
+addShape(transpose(lightweightSpaceship), numX-10, numY-10);
+addShape(flipVertical(transpose(lightweightSpaceship)), numX-30, 10);
+
+addShape(rosetta, 10, 85);
+addShape(gosperGlidingGun, 14, 85 + rosetta.length + 20);
+addShape(rosetta, rosetta[0].length + 22, 142);
+
+// Add a bunch of random fields
+// var yOffset = 100 + window.innerHeight/(width + space) | 0;
+// var numRandShapes = 25;
+// for(var i = 0; i < numRandShapes; i++) {
+// 	// Select a random basis shape
+// 	var shapes = [glider, gosperGlidingGun, lightweightSpaceship];
+// 	var rand = Math.random()*shapes.length | 0;
+// 	var shape = shapes[rand];
+
+// 	// Randomly flip/transpose it
+// 	if(Math.random() > 0.5) { shape = flipVertical(shape); }
+// 	if(Math.random() > 0.5) { shape = flipHorizontal(shape); }
+// 	if(Math.random() > 0.5) { shape = transpose(shape); }
+
+// 	// Random starting point
+// 	var x = Math.random()*numX | 0;
+// 	var y = yOffset + Math.random()*(numY - yOffset) | 0;
+// 	addShape(shape, x, y);
+// }
+
 
 var iteration = 0;
 var interval = setInterval(function() {
