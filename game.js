@@ -7,6 +7,9 @@ var nextGen = function(board) {
 		boardNext[i] = new Array(board[i].length);
 	}
 
+	// Counter to see how many fields changed (change meaning dying or becoming alive)
+	var changed = 0;
+
 	// For every cell in the old board
 	for (var x = 0; x < board.length; x++) {
 		for (var y = 0; y < board[x].length; y++) {
@@ -26,6 +29,7 @@ var nextGen = function(board) {
 
 			// Check whether it should die/live/stay as-is
 			c = board[x][y];
+			c_old = c;
 			switch (n) {
 				case 0: // Die -> alone
 				case 1:
@@ -42,11 +46,16 @@ var nextGen = function(board) {
 				default: // Die -> overcrowded
 					c = 0;
 			}
+
+			if((c_old > 0 && c == 0) || (c_old == 0 && c > 0)) {
+				changed++;
+			}
+
 			boardNext[x][y] = c;
 		}
 	}
 
-	return boardNext.slice();
+	return {board: boardNext.slice(), changed: changed};
 }
 
 //===================================
@@ -236,29 +245,54 @@ addShape(gosperGlidingGun, 14, 85 + rosetta.length + 20);
 addShape(rosetta, rosetta[0].length + 22, 142);
 
 // Add a bunch of random fields
-// var yOffset = 100 + window.innerHeight/(width + space) | 0;
-// var numRandShapes = 25;
-// for(var i = 0; i < numRandShapes; i++) {
-// 	// Select a random basis shape
-// 	var shapes = [glider, gosperGlidingGun, lightweightSpaceship];
-// 	var rand = Math.random()*shapes.length | 0;
-// 	var shape = shapes[rand];
+function addRandom(board) {
+	console.log("Adding random shape.");
+	
+	var yOffset = 100 + window.innerHeight/(width + space) | 0;
+	var numRandShapes = 25;
+	// Select a random basis shape
+	var shapes = [glider, gosperGlidingGun, lightweightSpaceship];
+	var rand = Math.random()*shapes.length | 0;
+	var shape = shapes[rand];
 
-// 	// Randomly flip/transpose it
-// 	if(Math.random() > 0.5) { shape = flipVertical(shape); }
-// 	if(Math.random() > 0.5) { shape = flipHorizontal(shape); }
-// 	if(Math.random() > 0.5) { shape = transpose(shape); }
+	// Randomly flip/transpose it
+	if(Math.random() > 0.5) { shape = flipVertical(shape); }
+	if(Math.random() > 0.5) { shape = flipHorizontal(shape); }
+	if(Math.random() > 0.5) { shape = transpose(shape); }
 
-// 	// Random starting point
-// 	var x = Math.random()*numX | 0;
-// 	var y = yOffset + Math.random()*(numY - yOffset) | 0;
-// 	addShape(shape, x, y);
-// }
+	// Random starting point
+	var offsetX = Math.random()*numX | 0;
+	var offsetY = yOffset + Math.random()*(numY - yOffset) | 0;
+
+	for(var y = 0; y < shape.length && (y+offsetY)<numY; y++) {
+		for(var x = 0; x < shape[y].length && (x+offsetX) < numX; x++) {
+			// Undefined is 0
+			board[x + offsetX][y + offsetY] = (shape[y][x] === 1) ? 1 : 0;
+		}
+	}
+
+	return board;
+}
+
+
+var keepAlive = function(board, changed) {
+	var changed_percentage = Math.round(100*(next.changed / (numX * numY)))/100
+	console.log("Changed: " + next.changed + " -> " + changed_percentage + "%");
+
+	if(changed_percentage < 0.02) {
+		return addRandom(board);
+	} else {
+		return board;
+	}
+}
 
 
 var iteration = 0;
 var interval = setInterval(function() {
-	gameBoard = nextGen(gameBoard);
+	next = nextGen(gameBoard);
+	gameBoard = next.board;
+
+	gameBoard = keepAlive(gameBoard, next.changed);
 
 	for(var x = 0; x < gameBoard.length; x++) {
 		for(var y = 0; y < gameBoard[x].length; y++) {
