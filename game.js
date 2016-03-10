@@ -32,25 +32,12 @@ var nextGen = function(board) {
 			c_old = c;
 			switch (n) {
 				case 0: // Die -> alone
-				case 1:
-					c = 0;
-					break;
-				case 2: // Stay as you are
-					if(c > 0) {
-						c++;
-					}
-					break; 
-				case 3: // Become alive
-					c++;
-					break;
-				default: // Die -> overcrowded
-					c = 0;
+				case 1: c = 0; break;
+				case 2: if(c > 0) { c++; } break; // Stay as you were
+				case 3: c++; break; // Become alive
+				default: c = 0; // Die -> overcrowded
 			}
-
-			if((c_old > 0 && c == 0) || (c_old == 0 && c > 0)) {
-				changed++;
-			}
-
+			if((c_old > 0 && c == 0) || (c_old == 0 && c > 0)) { changed++; }
 			boardNext[x][y] = c;
 		}
 	}
@@ -72,7 +59,7 @@ var width = 8;
 var space = 4;
 var numX = ctx.canvas.width/(width + space) | 0;
 var numY = ctx.canvas.height/(width + space) | 0;
-var refreshTime = 120;
+var refreshTime = 250;
 
 // Define colors of life and dead cells
 var colors = [
@@ -193,6 +180,26 @@ var rosetta = [
 	[ , , , , , , , , , , , , , , , , ,1,1,1],
 	[ , , , , , , , , , , , , , , , , ,1,1,0]
 ];
+
+// http://www.conwaylife.com/forums/viewtopic.php?f=2&t=2057
+// C/10 spaceship
+var c10 = [
+	[ , , , ,1,1, , , , ,0],
+	[ , , ,1,1,1,1, , , ,0],
+	[ , , , , , , , , , ,0],
+	[ , ,1,1,1,1,1,1, , ,0],
+	[ , , ,1,1,1,1, , , ,0],
+	[ , , , , , , , , , ,0],
+	[ , ,1,1, , ,1,1, , ,0],
+	[1,1, ,1, , ,1, ,1,1,0],
+	[ , , ,1, , ,1, , , ,0],
+	[ , , , , , , , , , ,0],
+	[ , , , , , , , , , ,0],
+	[ , , , ,1,1, , , , ,0],
+	[ , , , ,1,1, , , , ,0]
+];
+
+
 for(var i = 0; i < rosetta.length; i++) {
 	for(var j = 0; j < rosetta[i].length; j++) {
 		rosetta[i][j] = rosetta[i][j] === 1 ? 1 : 0;
@@ -217,6 +224,14 @@ var random = function(sizex, sizey, oneFraction) {
 }
 
 /*
+(0,0)			(0, numX)
+
+
+
+(numY, 0)		(numY, numX)
+*/
+
+/*
 	Add shapes to the gameboard
 */
 addShape(glider, 100, 0);
@@ -238,6 +253,8 @@ addShape(transpose(lightweightSpaceship), numX-20, 30);
 addShape(nextGen(transpose(lightweightSpaceship)), numX-20, 40);
 addShape(flipHorizontal(transpose(lightweightSpaceship)), numX-30, 25);
 
+addShape(c10, numX - 30, numY/2 | 0);
+
 addShape(flipHorizontal(gosperGlidingGun), numX - 60, numY - 20);
 
 addShape(rosetta, 10, 85);
@@ -251,7 +268,7 @@ function addRandom(board) {
 	var yOffset = 100 + window.innerHeight/(width + space) | 0;
 	var numRandShapes = 25;
 	// Select a random basis shape
-	var shapes = [glider, gosperGlidingGun, lightweightSpaceship];
+	var shapes = [glider, gosperGlidingGun, lightweightSpaceship, c10];
 	var rand = Math.random()*shapes.length | 0;
 	var shape = shapes[rand];
 
