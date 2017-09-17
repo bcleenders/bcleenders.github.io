@@ -1,189 +1,126 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./css/nanoscroller.css">
-	<link rel="stylesheet" href="./css/flags/flag-icon.css">
+	<!--
+	Timeline powered by: https://codyhouse.co/gem/vertical-timeline/
+	-->
 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
+	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Unica+One" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="https://use.fontawesome.com/68bbf9da23.js"></script>
+  	
 	<title>Bram Leenders</title>
 	<link rel="icon" href="favicon.png">
 </head>
 <body>
+	<header>
+		<h1>Bram Leenders</h1>
+	</header>
 
-<div class="nano">
-	<div class="nano-content">
-		<div id="world-container">
-			<canvas id="world">
-				Your browser does not support the canvas element.
-			</canvas>
+	<div class="cd-container">
+		<div class="centreddiv">
+			<h1>About me</h1>
+			<p>
+				I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems to support data engineers.
+			</p>
+			<p>
+				<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> bcleen<span><span></span>ders@g</span>mail.com<br />
+				<i class="fa fa-linkedin fa-fw" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/bcleenders/">LinkedIn</a>.
+			</p>
 		</div>
-		
-		<div id="content">
-			<div class="spacer">
-				<div class="block main-block">
-					<h1>Hi, I'm Bram Leenders.</h1>
 
-				    <h5>
-				    	I'm a Stockholm based <strong>programmer</strong>, <strong>music lover</strong> &amp; <strong>data infrastructure engineer</strong>.
-					</h5>
+		<div class="timeline">
+			<div>
+				<h1 id="timeline-header-wide"><span>Work Experience</span> <span>Education</span></h1>
+				<h1 id="timeline-header-small"><span>Work Experience &amp; Education</span></h1>
+			</div>
 
-					<div class="center">
-						<a class="iconlink" href="#about">
-							<i class="scrollDown fa fa-5x fa-chevron-circle-down"></i>
-						</a>
+			<section id="cd-timeline">
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img"><img src="img/spotify-logo.png"></div>
+					<div class="cd-timeline-content">
+						<h2>Data Infrastructure Engineer</h2>
+						<h3>Spotify</h3>
+						<p>
+							I build and maintain tools that help Spotify be a data-driven company.
+						</p>
+						<span class="cd-date">Oct 2016 - Present</span>
 					</div>
 				</div>
-			</div>
 
-			<div class="spacer-m"></div>
-		    
-		    <div class="block" id="about">
-		    	<h3>About me</h3>
-		    	<p>
-		    		I work at Spotify as data infrastructure engineer.
-		    	</p>
-		    	<p>
-					I am always open for interesting new ideas, challenges and opportunities. If you have one of these, or just feel like contacting me, then please do not hesistate to <a href="mailto:bcleenders@gmail.com">get in contact</a>.
-		    	</p>
-		    </div>
+				<div class="cd-timeline-block  cd-timeline-block-right">
+					<div class="cd-timeline-img"><img src="img/kth-logo.svg"></div>
+					<div class="cd-timeline-content">
+						<h2>MSc. Data Intensive Computing</h2>
+						<h3>KTH Royal Institute of Technology</h3>
+						<p>
+							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Master thesis graded <span style="font-weight:bold">A</span><br />
+						</p>
+						<span class="cd-date">Aug 2015 - Aug 2016</span>
+					</div>
+				</div>
 
-		    <div class="block" id="education">
-		    	<h3>Education</h3>
-		    	 <div class="row item">
-					<p class="university">KTH Royal Institute of Technology <span class="flag-icon flag-icon-se"></span></p>
-					<p class="info">Master ICT Innovation - Data Intensive Computing <span>&bull;</span> <em class="date">2015-2016</em></p>
-					<p>
-						The EIT ICT Labs Masters Programme is a two-year double degree programme. It combines Innovation &amp; Entrepreneurship with technical know-how.
-					</p>
-					<p>
-						My technical specialisation, Data Intensive Computing, emphasizes the combination of fundamental principles of distributed computing with modern methods of software systems design.
-					</p>
-		        </div> <!-- item end -->
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img"><img src="img/sics-logo.jpg"></div>
+					<div class="cd-timeline-content">
+						<h2>Intern</h2>
+						<h3>SICS Swedish ICT</h3>
+						<p>
+							I worked on HopsFS, a more scalable version of the Hadoop filesystem.
+						</p>
+						<span class="cd-date">Nov 2015 - June 2016</span>
+					</div>
+				</div>
 
-		        <div class="row item">
-					<p class="university">Technische Universit&auml;t Berlin <span class="flag-icon flag-icon-de"></span></p>
-					<p class="info">Master ICT Innovation - Distributed Systems and Services <span>&bull;</span> <em class="date">2014-2015</em></p>
-					<p>
-						My major, Distributed Systems and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services.
-					</p>
-		        </div> <!-- item end -->
-		        
-		        <div class="row item">
-					<p class="university">University of Twente <span class="flag-icon flag-icon-nl"></span></p>
-					<p class="info">Bachelor Computer Science <span>&bull;</span> <em class="date">2011-2014</em></p>
-					<p>
-						During my studies at the University of Twente, I also completed the Excellence Course Mathematics.
-					</p>
-		        </div> <!-- item end -->
-		    </div>
+				<div class="cd-timeline-block cd-timeline-block-right">
+					<div class="cd-timeline-img"><img src="img/tub-logo.jpg"></div>
+					<div class="cd-timeline-content">
+						<h2>MSc. Distributed Systems &amp; Services</h2>
+						<h3>Technische Universit&auml;t Berlin</h3>
+						<span class="cd-date">Oct 2014 - Oct 2015</span>
+					</div>
+				</div>
 
-		    <div class="block" id="publications">
-		    	<h3>Publications</h3>
-		    	<p>
-		           B&ouml;sch, C.T. and Peter, A. and Leenders, B. and Lim, Hoon Wei and Tang, Qiang and Wang, Huaxiong and Hartel, P.H. and Jonker, W. (2014) <em>Distributed Searchable Symmetric Encryption</em>. In: Twelfth Annual International Conference on Privacy, Security and Trust, PST 2014, 23-24 July 2014, Toronto, Canada. IEEE.
-		           <a target="_blank" href="pdf/distributedSSE.pdf">[pdf]</a> 
-		           <a target="_blank" href="bibtex/distributedSSE.bib">[bibTeX]</a>
-		        </p>
-		        <p>
-		           <strong>Master thesis:</strong> Leenders, B. (2016) <em>Heterogeneous Storage in HopsFS</em>
-		           <a target="_blank" href="pdf/master_thesis.pdf">[pdf]</a> 
-		        </p>
-		        <p>
-		           <strong>Bachelor thesis:</strong> Leenders, B. (2014) <em>Simple and Efficient Searchable Symmetric Encryption with Application</em>. In: 20<sup>th</sup> Twente Student Conference on IT
-		           <a target="_blank" href="pdf/bachelor_thesis.pdf">[pdf]</a> 
-		           <a target="_blank" href="bibtex/bachelor_thesis.bib">[bibTeX]</a>
-		        </p>
-		    </div>
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img"><img src="img/gambify-logo.jpg"></div>
+					<div class="cd-timeline-content">
+						<h2>Backend developer</h2>
+						<h3>Gambify GmbH</h3>
+						<p>
+							In a two-man team, we built and maintained a scalable REST API.
+						</p>
+						<span class="cd-date">Feb 2015 - July 2015</span>
+					</div>
+				</div>
 
-		    <div class="block" id="experience">
-		    	<h3>Experience</h3>
-		    	<p>
-		    		<strong>Work</strong><br />
-		    		I currently work as data infrastructure engineer at Spotify. My squad builds tools that help Spotify be a data-driven company.
-		    	</p>
-		    	<p>
-		    		Before this, I did a few jobs including:
-		    	</p>
-	    		<ul>
-	    			<li>Intern at <a href="https://www.sics.se/" target="_blank">SICS Swedish ICT</a>, a non-profit research institute. My focus is on improving HopsFS, a more scalable alternative to the Hadoop filesystem.
-	    			<li> Backend developer at <a href="https://gambify.de/" target="_blank">Gambify GmbH</a>. My tasks included development of the API, system design&amp;development and database optimization.
-    				<li> Student assistent at Twente University, various positions.
-    				<li> Organizing the annual symposium for <a href="https://www.inter-actief.utwente.nl/" target="_blank">Inter-<i>Actief</i></a>.
-	    		</ul>
-	    		
-		    	<p>
-		    		<strong>Projects</strong><br />
-		    		Some examples of cool projects I did:
-		    	</p>
-	    		<ul>
-	    			<li> Building an SQL database ground-up: data storage, caching, indexing and query planning, execution, optimization and more.
-    				<li> Using machine learning (LDA and k-means + Word2Vec) to detect topics and trends on Hacker News.
-    				<li> Designing a new computer language and building a compiler for it (it compiles to JVM bytecode).
-	    		</ul>
-		    	<p>
-		    		You can find all public projects on my <a href="https://github.com/bcleenders" target="_blank">Github page</a>.
-		    	</p>
-		    </div>
+				<div class="cd-timeline-block cd-timeline-block-right">
+					<div class="cd-timeline-img"><img src="img/twente-logo.png"></div>
+					<div class="cd-timeline-content">
+						<h2>BSc. Computer Science</h2>
+						<h3>University of Twente</h3>
+						<p>
+							<!-- <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> Enschede, The Netherlands<br /> -->
+							<i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Best paper award for bachelor thesis<br />
+							<i class="fa fa-star fa-fw" aria-hidden="true"></i> Extra curricular track: Excellence Stream Mathematics<br />
+							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Bachelor thesis graded <span style="font-weight:bold">9/10</span><br />
+						</p>
+						<span class="cd-date">Aug 2011 - Aug 2014</span>
+					</div>
+				</div>
 
-			<!--<div class="block" id="links">
-				<h3>Links</h3>
-				<p>
-					Here you can find me online:
-				</p>
-				<div class="center">
-			    	<p>
-			    		<a class="iconlink" href="https://github.com/bcleenders" target="_blank">
-			    			<i class="fa fa-5x fa-github"></i>
-			    		</a>
-			    		<i class="fa fa-fw">&nbsp;</i>
-			    		<i class="fa fa-fw">&nbsp;</i>
-						<a class="iconlink" href="https://de.linkedin.com/pub/bram-leenders/42/1b0/275" target="_blank">
-							<i class="fa fa-5x fa-linkedin"></i>
-						</a>
-						<i class="fa fa-fw">&nbsp;</i>
-			    		<i class="fa fa-fw">&nbsp;</i>
-						<a class="iconlink" href="https://careers.stackoverflow.com/bcleenders" target="_blank">
-							<i class="fa fa-5x fa-stack-overflow"></i>
-						</a>
-			    	</p>
-			    </div>
-		    </div>-->
-
-		    <div class="spacer-s"></div>
-
-			<div class="center">
-				<a class="iconlink" href="#about">
-					<i class="scrollDown fa fa-5x fa-chevron-circle-up"></i>
-				</a>
-			</div>
-		    
-		    <div class="spacer-s"></div>
-	    </div>
+			</section>
+		</div>
 	</div>
-</div>
 
-<script src="jquery.min.js"></script>
-<script src="game.js"></script>
-<script src="nanoscroller.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(
-		function() { 
-			$(".nano").nanoScroller();
-
-			$(document).ready(function(){
-				$('a[href*=#]').each(function() {
-					$(this).context.onclick = function (e) {
-					    e.preventDefault();
-
-					    var el = $('.nano-content');
-						el.animate({ 'scrollTop': $(this.hash).offset().top }, '400', 'swing');
-					};
-				});
-			});
-		}
-	);
-</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
 
 </body>
 </html>
