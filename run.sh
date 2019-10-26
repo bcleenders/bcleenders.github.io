@@ -1,2 +1,2 @@
 #!/bin/bash
-http-server -c-1 .
+python -m SimpleHTTPServer 8000

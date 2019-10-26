@@ -40,7 +40,7 @@ h1, h2, h3 {
 }
 
 #timeline-header-wide {
-    /*padding: 0 2em;*/
+    padding: 0 1em;
     justify-content: space-between;
 }
 /*
