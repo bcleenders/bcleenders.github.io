@@ -11,29 +11,30 @@
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Unica+One" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/life.css">
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
 	<title>Bram Leenders</title>
 	<link rel="icon" href="favicon.png">
 </head>
 <body>
-	<header>
-		<h1>Bram Leenders</h1>
-	</header>
+	<div id="world-container">
+		<canvas id="world">
+			Your browser does not support the canvas element.
+		</canvas>
+	</div>
 
-	<div class="cd-container">
-		<div class="centreddiv">
-			<h1>About me</h1>
-			<p>
-				I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems that form the core of Spotify's infrastructure.
-			<p>
-				<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> bcleen<span><span></span>ders@g</span>mail.com<br />
-				<i class="fa fa-linkedin fa-fw" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/bcleenders/">LinkedIn</a>.
-			</p>
-		</div>
+	<div id="content">
+		<div class="spacer-m"></div>
+		
+	    <div class="block">
+	    	<h1>Hello, world</h1>
+	    	<p>
+	    		I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems to support data engineers.
+	    	</p>
+	    </div>
 
-		<div class="timeline">
+	    <div class="block">
 			<div>
 				<!-- This is a bit hacky - it shows only one of the two below; see CSS  -->
 				<h1 id="timeline-header-wide"><span>Work Experience</span> <span>Education</span></h1>
@@ -115,9 +116,22 @@
 
 			</section>
 		</div>
+
+	    <div class="block" id="links">
+			<h3>Links</h3>
+			<p>
+				Here you can find me online:
+			</p>
+			<ul>
+				<li> <a href="https://github.com/bcleenders" target="_blank">Github</a></li>
+				<li> <a href="https://de.linkedin.com/pub/bram-leenders/42/1b0/275" target="_blank">Linkedin</a></li>
+			</ul>
+	    </div>
+
+	    <div class="spacer-m"></div>
+
 	</div>
 
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
-
 </body>
 </html>

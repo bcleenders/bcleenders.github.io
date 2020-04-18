@@ -1,0 +1,35 @@
+#world-container {
+	margin: 0px;
+	z-index: -10;
+	position: absolute;
+}
+
+#content {
+	z-index: 10;
+	max-width: 1240px;
+	padding-right: 35px;
+	padding-left: 35px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.spacer-m {
+	height: 150px;
+	display: block;
+}
+
+.spacer-s {
+	height: 75px;
+	display: block;
+}
+
+.block {
+	background-color: rgba(255, 255, 255, 0.4);
+
+	padding: 20px;
+
+	margin-left: 0px;
+	margin-right: 0px;
+
+	margin-bottom: 20px;
+}

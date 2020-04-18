@@ -17,18 +17,14 @@ html * {
 
 body {
   font-size: 100%;
-  font-family: "Open Sans", serif;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #e9f0f5;
 }
 
-img {
-  max-width: 100%;
-}
-
-.centreddiv {
+/*.centreddiv {
   max-width: 38rem;
   margin: 0 auto;
-}
+}*/
 
 .centreddiv p {
   padding: 0.5em 0;
@@ -67,56 +63,7 @@ h1 {
 Modules - reusable parts of our design
 
 -------------------------------- */
-.cd-container {
-  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-  width: 90%;
-  max-width: 1170px;
-  margin: 0 auto;
-}
-.cd-container::after {
-  /* clearfix */
-  content: '';
-  display: table;
-  clear: both;
-}
 
-/* -------------------------------- 
-
-Main components 
-
--------------------------------- */
-header {
-  height: 200px;
-  /*line-height: 200px;*/
-  text-align: center;
-  background: #303e49;
-  margin-bottom: 3em;
-  padding-top: calc(100px - 0.6em);
-}
-header h1 {
-  color: white;
-  font-size: 18px;
-  font-size: 1.2rem;
-}
-@media only screen and (min-width: 1170px) {
-  header {
-    height: 300px;
-    padding-top: calc(150px - 1rem);
-  }
-  header h1 {
-    font-size: 24px;
-    font-size: 2rem;
-  }
-}
-
-.timeline {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.timeline h1 {
-  margin-bottom: 0px;
-}
 
 #cd-timeline {
   position: relative;
@@ -132,7 +79,8 @@ header h1 {
   height: 100%;
   width: 4px;
 
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #d7e4ed 3em, #d7e4ed calc(100% - 3em), rgba(0, 0, 0, 0));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #fff 3em, #fff calc(100% - 3em), rgba(0, 0, 0, 0));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #fff 3em, #fff calc(100% - 3em), rgba(0, 0, 0, 0));
 }
 
 @media only screen and (min-width: 1170px) {
@@ -168,16 +116,15 @@ header h1 {
   left: 0;
   width: 40px;
   height: 40px;
+  background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 4px white;
 }
 .cd-timeline-img img {
   display: block;
   position: relative;
+  width: 100%;
   border-radius: 50%;
-}
-.cd-timeline-img {
-  background: #fff;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {
