@@ -24,7 +24,14 @@
 }
 
 .block {
-	background-color: rgba(255, 255, 255, 0.4);
+	/*
+		alpha works with opacity, so the alpha of 0.2 and 0.3 overlapping is:
+		1 - (1-0.2)*(1-0.3) = 0.44
+		make the combined value of `cd-timeline-content` and this be the same
+		as for "narrow", set this alpha to:
+		1 - (1-narrow)/(1-cd-timeline-content)
+	*/
+	background-color: rgba(255, 255, 255, 0.5);
 
 	padding: 20px;
 
@@ -32,4 +39,20 @@
 	margin-right: 0px;
 
 	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1169px) {
+  .stretch {
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.narrow {
+	background-color: rgba(255, 255, 255, 0.85); /* Keep synced with block settings! */
+
+	max-width: 38rem;
+	margin-left: auto;
+	margin-right: auto;
 }

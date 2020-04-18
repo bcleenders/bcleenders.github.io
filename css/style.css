@@ -6,6 +6,9 @@ Primary style
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 *, *:after, *:before {
@@ -19,12 +22,8 @@ body {
   font-size: 100%;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #e9f0f5;
+  line-height: 1;
 }
-
-/*.centreddiv {
-  max-width: 38rem;
-  margin: 0 auto;
-}*/
 
 .centreddiv p {
   padding: 0.5em 0;
@@ -68,6 +67,13 @@ Modules - reusable parts of our design
 #cd-timeline {
   position: relative;
   padding: 4em 2em 0;
+}
+@media only screen and (max-width: 1169px) {
+  #cd-timeline {
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 #cd-timeline::before {
@@ -143,7 +149,8 @@ Modules - reusable parts of our design
 .cd-timeline-content {
   position: relative;
   margin-left: 60px;
-  background: white;
+  /*background: white;*/
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0.25em;
   padding: 1em 1em 0;
   box-shadow: 0 3px 0 #d7e4ed;
@@ -167,11 +174,15 @@ Modules - reusable parts of our design
   font-size: 0.8125rem;
 }
 .cd-timeline-content .cd-date {
+  font-weight: bold;
   display: inline-block;
 }
 .cd-timeline-content p {
   margin: 0.7em 0 0;
   line-height: 1.6;
+}
+.cd-timeline-content ul {
+  margin-left: 20px;
 }
 .cd-timeline-content .cd-date {
   float: left;
