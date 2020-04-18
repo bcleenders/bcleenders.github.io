@@ -2,19 +2,17 @@
 <html lang="en" class="no-js">
 <head>
 	<!--
-	Timeline powered by: https://codyhouse.co/gem/vertical-timeline/
+	Timeline inspired by: https://codyhouse.co/gem/vertical-timeline/
 	-->
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Unica+One" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-	<script src="https://use.fontawesome.com/68bbf9da23.js"></script>
   	
 	<title>Bram Leenders</title>
 	<link rel="icon" href="favicon.png">
@@ -28,8 +26,7 @@
 		<div class="centreddiv">
 			<h1>About me</h1>
 			<p>
-				I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems to support data engineers.
-			</p>
+				I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems that form the core of Spotify's infrastructure.
 			<p>
 				<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> bcleen<span><span></span>ders@g</span>mail.com<br />
 				<i class="fa fa-linkedin fa-fw" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/bcleenders/">LinkedIn</a>.
@@ -38,6 +35,7 @@
 
 		<div class="timeline">
 			<div>
+				<!-- This is a bit hacky - it shows only one of the two below; see CSS  -->
 				<h1 id="timeline-header-wide"><span>Work Experience</span> <span>Education</span></h1>
 				<h1 id="timeline-header-small"><span>Work Experience &amp; Education</span></h1>
 			</div>
@@ -61,7 +59,7 @@
 						<h2>MSc. Data Intensive Computing</h2>
 						<h3>KTH Royal Institute of Technology</h3>
 						<p>
-							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Master thesis graded <span style="font-weight:bold">A</span><br />
+							Master thesis graded <span style="font-weight:bold">A</span><br />
 						</p>
 						<span class="cd-date">Aug 2015 - Aug 2016</span>
 					</div>
@@ -73,7 +71,7 @@
 						<h2>Intern</h2>
 						<h3>SICS Swedish ICT</h3>
 						<p>
-							I worked on HopsFS, a more scalable version of the Hadoop filesystem.
+							I worked on HopsFS, a distributed filesystem based on the Apache Hadoop distributed file system. My responsibility is to design and implement support for heterogeneous storage, meaning that the file system is aware of differences in hardware (e.g. harddisks vs. flash storage) and optimizes distribution of files to maximize utilization of the resources.
 						</p>
 						<span class="cd-date">Nov 2015 - June 2016</span>
 					</div>
@@ -94,7 +92,7 @@
 						<h2>Backend developer</h2>
 						<h3>Gambify GmbH</h3>
 						<p>
-							In a two-man team, we built and maintained a scalable REST API.
+							Reimplementing the backend of the social betting platform Gambify, with a focus on scalability. This meant redesigning and rewriting the entire backend as a team of 3 engineers.
 						</p>
 						<span class="cd-date">Feb 2015 - July 2015</span>
 					</div>
@@ -106,10 +104,10 @@
 						<h2>BSc. Computer Science</h2>
 						<h3>University of Twente</h3>
 						<p>
-							<!-- <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> Enschede, The Netherlands<br /> -->
-							<i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Best paper award for bachelor thesis<br />
-							<i class="fa fa-star fa-fw" aria-hidden="true"></i> Extra curricular track: Excellence Stream Mathematics<br />
-							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Bachelor thesis graded <span style="font-weight:bold">9/10</span><br />
+							Best paper award for bachelor thesis<br />
+							Extra curricular track: Excellence Stream Mathematics<br />
+							Minored in "Social and Technological Philosophy" (custom minor)<br />
+							Bachelor thesis <i>"Simple and Efficient Searchable Symmetric Encryption with Application"</i>, graded <span style="font-weight:bold">9/10</span>.
 						</p>
 						<span class="cd-date">Aug 2011 - Aug 2014</span>
 					</div>
@@ -119,7 +117,6 @@
 		</div>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
 
 </body>
