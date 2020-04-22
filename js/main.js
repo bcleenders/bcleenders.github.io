@@ -69,7 +69,7 @@ var colors = [
 ];
 
 // The window width may not perfectly fit - use an offset when drawing to centre our cells
-var xOffset = (ctx.canvas.width - space) % (width + space) / 2;
+var xOffset = (ctx.canvas.width - space) % (width + space) / 2 | 0;
 function set(x, y, color) {
 	ctx.fillStyle = color;
 	ctx.fillRect(x*(width+space) + space + xOffset, y*(width+space)+space, width, width);
