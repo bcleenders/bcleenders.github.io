@@ -3,27 +3,6 @@
 Primary style
 
 -------------------------------- */
-html * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: #7f8c97;
-}
-
-body {
-  font-size: 100%;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #e9f0f5;
-  line-height: 1;
-}
 
 .centreddiv p {
   padding: 0.5em 0;
@@ -42,19 +21,15 @@ body {
 
   This causes the text to change based on screen size.
 */
+#timeline-header-wide {
+  display: none;
+}
+#timeline-header-small {
+  display: flex;
+}
 @media only screen and (min-width: 1170px) {
   #timeline-header-wide { display: flex; }
   #timeline-header-small { display: none; }
-}
-@media only screen and (max-width: 1169px) {
-  #timeline-header-wide { display: none; }
-  #timeline-header-small { display: flex; }
-}
-
-h1 {
-  font-size: 2rem;
-  font-color: #000;
-  margin-bottom: 1em;
 }
 
 /* -------------------------------- 
@@ -66,7 +41,7 @@ Modules - reusable parts of our design
 
 #cd-timeline {
   position: relative;
-  padding: 4em 2em 0;
+  padding: 32px 5px 0;
 }
 @media only screen and (max-width: 1169px) {
   #cd-timeline {
@@ -81,12 +56,14 @@ Modules - reusable parts of our design
   content: '';
   position: absolute;
   top: 0;
-  left: 48px; /* 100/2 - half the line width */
+  /* cd-timeline padding-left + 1/2 cd-timeline-img width - 1/2 cd-timeline width*/
+  left: calc(5px + 40px/2 - 4px/2);
   height: 100%;
   width: 4px;
 
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #fff 3em, #fff calc(100% - 3em), rgba(0, 0, 0, 0));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #fff 3em, #fff calc(100% - 3em), rgba(0, 0, 0, 0));
+  /*background: linear-gradient(180deg, rgba(0, 0, 0, 0), #fff 3em, #fff calc(100% - 3em), rgba(0, 0, 0, 0));*/
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 2em, #fff calc(100% - 2em), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.001), #fff 2em, #fff calc(100% - 2em), rgba(255, 255, 255, 0.001));
 }
 
 @media only screen and (min-width: 1170px) {
@@ -161,28 +138,27 @@ Modules - reusable parts of our design
   clear: both;
 }
 .cd-timeline-content h2 {
+  font-size: 1.4rem;
   color: #303e49;
 }
 
 .cd-timeline-content h3 {
-  margin: 0.7em 0 0;
+  font-size: 1.2rem;
+  margin: 0rem 0 0;
   color: #707e79;
 }
 
 .cd-timeline-content p, .cd-timeline-content .cd-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
+  color: #707e79;
+  font-size: 1rem;
 }
 .cd-timeline-content .cd-date {
   font-weight: bold;
   display: inline-block;
 }
 .cd-timeline-content p {
-  margin: 0.7em 0 0;
+  margin: 0.5rem 0 0;
   line-height: 1.6;
-}
-.cd-timeline-content ul {
-  margin-left: 20px;
 }
 .cd-timeline-content .cd-date {
   float: left;
@@ -198,24 +174,6 @@ Modules - reusable parts of our design
   width: 0;
   border: 7px solid transparent;
   border-right: 7px solid white;
-}
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
-  }
-  .cd-timeline-content h3 {
-    font-size: 16px;
-    font-size: 1.1rem;
-  }
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {

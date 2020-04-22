@@ -7,9 +7,6 @@ var nextGen = function(board) {
 		boardNext[i] = new Array(board[i].length);
 	}
 
-	// Counter to see how many fields changed (change meaning dying or becoming alive)
-	var changed = 0;
-
 	// For every cell in the old board
 	for (var x = 0; x < board.length; x++) {
 		for (var y = 0; y < board[x].length; y++) {
@@ -18,6 +15,7 @@ var nextGen = function(board) {
 			var n = 0;
 			for (var dx = -1; dx <= 1; dx++) {
 				for (var dy = -1; dy <= 1; dy++) {
+					// We wrap around the edges - helps keep us alive
 					var xcoordinate = (x+dx + board.length) % board.length;
 					var ycoordinate = (y+dy + board[xcoordinate].length) % board[xcoordinate].length;
 					if ( dx == 0 && dy == 0){}
@@ -37,32 +35,29 @@ var nextGen = function(board) {
 				case 3: c++; break; // Become alive
 				default: c = 0; // Die -> overcrowded
 			}
-			if((c_old > 0 && c == 0) || (c_old == 0 && c > 0)) { changed++; }
 			boardNext[x][y] = c;
 		}
 	}
 
-	return {board: boardNext.slice(), changed: changed};
+	return {
+		board: boardNext.slice()
+	};
 }
 
 //===================================
 
 var canvas = document.getElementById("world");
 var ctx = canvas.getContext("2d");
-// var ctx = document.getCSSCanvasContext("2d", "world", 300, 300);
 
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = document.documentElement.scrollHeight;
 
-// Get some basic sizes
+// Define the size of a block, and calculate how large the world is
 var width = 9;
 var space = 4;
 var numX = (ctx.canvas.width - space)/(width + space) | 0;
 var numY = ctx.canvas.height/(width + space) | 0;
 var refreshTime = 250;
-
-// The window width may not perfectly fit
-var xOffset = (ctx.canvas.width - space) % (width + space) / 2;
 
 // Define colors of life and dead cells
 var colors = [
@@ -73,6 +68,8 @@ var colors = [
 	"#004400" // Old alive
 ];
 
+// The window width may not perfectly fit - use an offset when drawing to centre our cells
+var xOffset = (ctx.canvas.width - space) % (width + space) / 2;
 function set(x, y, color) {
 	ctx.fillStyle = color;
 	ctx.fillRect(x*(width+space) + space + xOffset, y*(width+space)+space, width, width);
@@ -183,6 +180,16 @@ var rosetta = [
 	[ , , , , , , , , , , , , , , , , ,1,1,1],
 	[ , , , , , , , , , , , , , , , , ,1,1,0]
 ];
+// To get the full one, flip it a few times
+for(var i = 0; i < rosetta.length; i++) {
+	for(var j = 0; j < rosetta[i].length; j++) {
+		rosetta[i][j] = rosetta[i][j] === 1 ? 1 : 0;
+	}
+}
+for(var i = 0; i < rosetta.length; i++) {
+	rosetta[i] = rosetta[i].concat(rosetta[i].slice().reverse())
+};
+rosetta = rosetta.concat(rosetta.slice().reverse());
 
 // http://www.conwaylife.com/forums/viewtopic.php?f=2&t=2057
 // C/10 spaceship
@@ -202,17 +209,6 @@ var c10 = [
 	[ , , , ,1,1, , , , ,0]
 ];
 
-
-for(var i = 0; i < rosetta.length; i++) {
-	for(var j = 0; j < rosetta[i].length; j++) {
-		rosetta[i][j] = rosetta[i][j] === 1 ? 1 : 0;
-	}
-}
-for(var i = 0; i < rosetta.length; i++) {
-	rosetta[i] = rosetta[i].concat(rosetta[i].slice().reverse())
-};
-rosetta = rosetta.concat(rosetta.slice().reverse());
-
 var random = function(sizex, sizey, oneFraction) {
 	var output = [];
 
@@ -227,11 +223,14 @@ var random = function(sizex, sizey, oneFraction) {
 }
 
 /*
-(0,0)			(0, numX)
-
-
-
-(numY, 0)		(numY, numX)
+Our coordinates are set as:
+ ____________________________
+| (0,0)            (0, numX) |
+|                            |
+|                            |
+|                            |
+| (numY, 0)     (numY, numX) |
+|____________________________|
 */
 
 /*
@@ -264,55 +263,10 @@ addShape(rosetta, 10, 85);
 addShape(gosperGlidingGun, 14, 85 + rosetta.length + 20);
 addShape(rosetta, rosetta[0].length + 22, 142);
 
-// Add a bunch of random fields
-function addRandom(board) {
-	console.log("Adding random shape.");
-
-	var yOffset = 100 + window.innerHeight/(width + space) | 0;
-	var numRandShapes = 25;
-	// Select a random basis shape
-	var shapes = [glider, gosperGlidingGun, lightweightSpaceship, c10];
-	var rand = Math.random()*shapes.length | 0;
-	var shape = shapes[rand];
-
-	// Randomly flip/transpose it
-	if(Math.random() > 0.5) { shape = flipVertical(shape); }
-	if(Math.random() > 0.5) { shape = flipHorizontal(shape); }
-	if(Math.random() > 0.5) { shape = transpose(shape); }
-
-	// Random starting point
-	var offsetX = Math.random()*numX | 0;
-	var offsetY = yOffset + Math.random()*(numY - yOffset) | 0;
-
-	for(var y = 0; y < shape.length; y++) {
-		for(var x = 0; x < shape[y].length; x++) {
-			// Undefined is 0
-			board[(x + offsetX) % numX][(y + offsetY) % numY] = (shape[y][x] === 1) ? 1 : 0;
-		}
-	}
-
-	return board;
-}
-
-
-var keepAlive = function(board, changed) {
-	var changed_percentage = Math.round(100*(next.changed / (numX * numY)))/100
-	// console.log("Changed: " + next.changed + " -> " + changed_percentage + "%");
-
-	if(changed_percentage < 0.02) {
-		return addRandom(board);
-	} else {
-		return board;
-	}
-}
-
-
 var iteration = 0;
 var interval = setInterval(function() {
 	next = nextGen(gameBoard);
 	gameBoard = next.board;
-
-	gameBoard = keepAlive(gameBoard, next.changed);
 
 	for(var x = 0; x < gameBoard.length; x++) {
 		for(var y = 0; y < gameBoard[x].length; y++) {

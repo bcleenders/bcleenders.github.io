@@ -1,17 +1,13 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-	<!--
-	Timeline inspired by: https://codyhouse.co/gem/vertical-timeline/
-	-->
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Unica+One" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/life.css">
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/style.css">
   	
 	<title>Bram Leenders</title>
 	<link rel="icon" href="favicon.png">
@@ -25,13 +21,34 @@
 
 	<div id="content">
 
-		<div class="spacer-m"></div>
-		
+		<div class="modal">
+			<div class="modal-inner block narrow">
+				<h1>Hi, I'm Bram.</h1>
+
+			    <p>
+			    	I'm a New York based <span class="bold">programmer</span>, <span class="bold">music lover</span> &amp; <span class="bold">infrastructure engineer</span>.
+				</p>
+				<p>
+					Some of my programming interests are algorithms, distributed systems and security.
+				</p>
+			</div>
+		</div>
+
 	    <div class="block narrow">
-	    	<h1>Hello, world</h1>
-	    	<p>
-	    		I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems to support data engineers.
-	    	</p>
+			<h2>Find me online</h2>
+			<p>
+				Here you can find me online:
+			</p>
+			<ul>
+				<li> <a href="https://github.com/bcleenders" target="_blank">Github</a></li>
+				<li> <a href="https://keybase.io/bcleenders" target="_blank">Keybase</a></li>
+				<li> <a href="https://linkedin.com/in/bcleenders" target="_blank">Linkedin</a></li>
+				<li> Email: bcleenders<span>@</span>gmail.com</li>
+			</ul>
+			<p>
+				If you want to use PGP, my key fingerprint is:<br />
+				<tt>51FD DD52 4D8B FB33 7246  D467 0BB5 726B C83D 5640</tt>
+			</p>
 	    </div>
 
 	    <div class="spacer-m"></div>
@@ -44,6 +61,7 @@
 				<h1 id="timeline-header-small"><span>Work Experience &amp; Education</span></h1>
 			</div>
 
+			<!-- Timeline, inspired by: https://codyhouse.co/gem/vertical-timeline/ -->
 			<section id="cd-timeline">
 				<div class="cd-timeline-block">
 					<div class="cd-timeline-img"><img src="img/spotify-logo.png"></div>
@@ -56,7 +74,7 @@
 								<li>DNS, both internal and external</li>
 								<li>Kubernetes cluster administration</li>
 								<li>Infrastructure automation with Puppet and Terraform</li>
-								<li>Incident management on squad level and company wide</li>
+								<li>Incident management</li>
 							</ul>
 						</p>
 						<span class="cd-date">Feb 2019 - Present</span>
@@ -69,10 +87,11 @@
 						<h2>Data Infrastructure Engineer</h2>
 						<h3>Spotify</h3>
 						<p>
-							I build and maintain tools that help Spotify be a data-driven company.
-						</p>
-						<p>
-							Two of the main projects I was involved in are the migration from on-premise to Google Cloud Platform, and the implementation of infrastructure that supports GDPR.
+							I built and maintained tools to help Spotify be a data-driven company. Two of the main projects I was involved in are:
+							<ul>
+								<li>migrating from on-premise to Google Cloud Platform</li>
+								<li>design and implementation of infrastructure that supports GDPR</li>
+							</ul>
 						</p>
 						<span class="cd-date">Oct 2016 - Feb 2019</span>
 					</div>
@@ -96,7 +115,7 @@
 						<h2>Intern</h2>
 						<h3>SICS Swedish ICT</h3>
 						<p>
-							I worked on HopsFS, a distributed filesystem based on the Apache Hadoop distributed file system. My responsibility is to design and implement support for heterogeneous storage, meaning that the file system is aware of differences in hardware (e.g. harddisks vs. flash storage) and optimizes distribution of files to maximize utilization of the resources.
+							I worked on HopsFS, a distributed filesystem based on the Apache Hadoop distributed file system. My area of responsibility was support for heterogeneous storage: making the file system aware of differences in hardware (e.g. harddisks vs. flash storage) and optimizing distribution of files to maximize utilization of the hardware.
 						</p>
 						<span class="cd-date">Nov 2015 - June 2016</span>
 					</div>
@@ -107,6 +126,9 @@
 					<div class="cd-timeline-content">
 						<h2>MSc. Distributed Systems &amp; Services</h2>
 						<h3>Technische Universit&auml;t Berlin</h3>
+						<p>
+							My major, Distributed Systems and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services.
+						</p>
 						<span class="cd-date">Oct 2014 - Oct 2015</span>
 					</div>
 				</div>
@@ -128,36 +150,18 @@
 					<div class="cd-timeline-content">
 						<h2>BSc. Computer Science</h2>
 						<h3>University of Twente</h3>
-						<p>
-							Best paper award for bachelor thesis<br />
-							Extra curricular track: Excellence Stream Mathematics<br />
-							Minored in "Social and Technological Philosophy" (custom minor)<br />
-							Bachelor thesis <i>"Simple and Efficient Searchable Symmetric Encryption with Application"</i>, graded <span style="font-weight:bold">9/10</span>.
-						</p>
+						<ul>
+							<li>Best paper award for bachelor thesis</li>
+							<li>Extra curricular track: Excellence Stream Mathematics</li>
+							<li>Minor in <span class="italic">"Social and Technological Philosophy"</span></li>
+							<li>Bachelor thesis <span class="italic">"Simple and Efficient Searchable Symmetric Encryption with Application"</span>, graded <span class="bold">9/10</span></li>
+						</ul>
 						<span class="cd-date">Aug 2011 - Aug 2014</span>
 					</div>
 				</div>
 
 			</section>
 		</div>
-
-		<div class="block narrow">
-	    	<h1>Hello, world</h1>
-	    	<p>
-	    		
-	    	</p>
-	    </div>
-
-	    <div class="block narrow">
-			<h3>Links</h3>
-			<p>
-				Here you can find me online:
-			</p>
-			<ul>
-				<li> <a href="https://github.com/bcleenders" target="_blank">Github</a></li>
-				<li> <a href="https://de.linkedin.com/pub/bram-leenders/42/1b0/275" target="_blank">Linkedin</a></li>
-			</ul>
-	    </div>
 
 	    <div class="spacer-m"></div>
 
