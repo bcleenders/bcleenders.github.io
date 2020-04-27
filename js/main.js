@@ -1,7 +1,7 @@
 /*
 In the beginning, there was time.
 */
-const period = 100; // ms
+const period = 250; // ms
 
 /*
 Create a canvas to draw our world on.
@@ -38,6 +38,8 @@ for (var i = 0; (i + Pattern.lightweightSpaceship.width) < canvas.width; i += (P
 	world.addShape(directedSpaceship.flipHorizontal(),
 		canvas.width - i,
 		((canvas.height / 3) + Pattern.lightweightSpaceship.height + 4) | 0); // A bit further down, with a little space in between
+
+	flipped = !flipped;
 }
 world.addShape(Pattern.lightweightSpaceship, (canvas.width / 3) | 0, (canvas.height / 3) | 0);
 world.addShape(Pattern.lightweightSpaceship.flipHorizontal().flipVertical(), (2 * canvas.width / 3) | 0, (canvas.height / 3) | 0);

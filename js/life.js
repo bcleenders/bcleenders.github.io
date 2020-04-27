@@ -265,11 +265,11 @@ class Cell {
 	// Define colors of life and dead cells
 	static get colors() {
 		return [
-			"#dddddd", // Dead
-			"#88cc88", // Newly alive
-			"#55aa55",
-			"#116611",
-			"#004400" // Old alive
+			"#ddd", // Dead
+			"#9c9", // Newly alive
+			"#6b6",
+			"#4a4",
+			"#292" // Old alive
 		];
 	}
 
