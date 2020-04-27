@@ -7,10 +7,9 @@ const period = 100; // ms
 Create a canvas to draw our world on.
 */
 const canvas = new Canvas();
-const world = new World(canvas.width, canvas.height);
+canvas.init();
 
-// Draw an empty world so we see the cells immediately
-canvas.drawWorld(world.getCells())
+const world = new World(canvas.width, canvas.height);
 
 // Init life
 for (var i = 0; i < 8; i++) {
@@ -62,3 +61,15 @@ var interval = setInterval(function() {
 	world.nextGen();
 	canvas.drawWorld(world.getCells());
 }, period);
+
+// This part isn't great... but resizing needs to be handled somehow :/
+var resizeTimer; // To not trigger too many times
+window.onresize = function() {
+	clearTimeout(resizeTimer);
+	resizeTimer = setTimeout(function() {
+		console.log("Detected resizing!");
+		canvas.init();
+		world.resize(canvas.width, canvas.height);
+		canvas.drawWorld(world.getCells());
+	}, 250);
+};

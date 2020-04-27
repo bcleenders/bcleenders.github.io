@@ -231,7 +231,28 @@ class World {
 		}
 
 		return this;
-	};
+	}
+
+	resize(newWidth, newHeight) {
+		const newWorld = World.empty(newWidth, newHeight);
+
+		// If the world increased in size, align existing life to the centre.
+		// It's a bit arbitrary since we overflow to either direction anyway so positions are 
+		// meaningless, but I thought this looks nicer.
+		const xOffset = (newWidth > this.width) ?
+			(newWidth - this.width)/2 | 0 :
+			0;
+
+		for (var x = 0; x < this.width; x++) {
+			for (var y = 0; y < this.height; y++) {
+				newWorld[xOffset + x % newWidth][y % newHeight] = this.cells[x][y];
+			}
+		}
+
+		this.width = newWidth;
+		this.height = newHeight;
+		this.cells = newWorld;
+	}
 
 	static empty(width, height) {
 		return new Array(width)
@@ -265,16 +286,25 @@ class Canvas {
 	constructor() {
 		this.canvas = document.getElementById("world");
 		this.ctx = this.canvas.getContext("2d");
+	}
 
+	init() {
 		this.ctx.canvas.width  = window.innerWidth;
 		this.ctx.canvas.height = document.documentElement.scrollHeight;
 
-		// Define the size of a block, and calculate how large the world is
-		
+		// Remove anything we may've drawn before
+		this.clear();
+
+		// Calculate how many cells wide/high our canvas is
 		this.numX = (this.ctx.canvas.width - Cell.space)/(Cell.width + Cell.space) | 0;
 		this.numY = this.ctx.canvas.height/(Cell.width + Cell.space) | 0;
 
+		// To centre the cells, we may need an offset
+		// Round to int (| 0) to avoid drawing any half-transparent pixels
 		this.xOffset = (this.ctx.canvas.width - Cell.space) % (Cell.width + Cell.space) / 2 | 0;
+
+		// Draw an empty world so we see the cells immediately
+		this.drawWorld(World.empty(this.numX, this.numY));
 	}
 
 	get width() {
@@ -300,5 +330,9 @@ class Canvas {
 				this.colorCell(x, y, Cell.colors[colorId]);
 			}
 		}
+	}
+
+	clear() {
+		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 	}
 }
