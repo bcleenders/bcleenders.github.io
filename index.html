@@ -1,57 +1,99 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-	<!--
-	Timeline powered by: https://codyhouse.co/gem/vertical-timeline/
-	-->
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans|Unica+One" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-	<script src="https://use.fontawesome.com/68bbf9da23.js"></script>
+	<link rel="stylesheet" href="css/life.css">
+	<link rel="stylesheet" href="css/style.css">
   	
 	<title>Bram Leenders</title>
 	<link rel="icon" href="favicon.png">
 </head>
 <body>
-	<header>
-		<h1>Bram Leenders</h1>
-	</header>
+	<div id="world-container">
+		<canvas id="world">
+			Your browser does not support the canvas element.
+		</canvas>
+	</div>
 
-	<div class="cd-container">
-		<div class="centreddiv">
-			<h1>About me</h1>
-			<p>
-				I'm a passionate backend engineer, currently helping Spotify serve music to the world. I design, build and maintain infrastructure for big data pipelines and large distributed systems to support data engineers.
-			</p>
-			<p>
-				<i class="fa fa-envelope fa-fw" aria-hidden="true"></i> bcleen<span><span></span>ders@g</span>mail.com<br />
-				<i class="fa fa-linkedin fa-fw" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/bcleenders/">LinkedIn</a>.
-			</p>
+	<div id="content">
+
+		<div class="modal">
+			<div class="modal-inner block narrow">
+				<h1>Hi, I'm Bram.</h1>
+
+			    <p>
+			    	I'm a New York based <span class="bold">programmer</span>, <span class="bold">music lover</span> &amp; <span class="bold">infrastructure engineer</span>.
+				</p>
+				<p>
+					Some of my programming interests are algorithms, distributed systems and security.
+				</p>
+			</div>
 		</div>
 
-		<div class="timeline">
+	    <div class="block narrow">
+			<h2>Find me online</h2>
+			<p>
+				Here you can find me online:
+			</p>
+			<ul>
+				<li> <a href="https://github.com/bcleenders" target="_blank">Github</a></li>
+				<li> <a href="https://keybase.io/bcleenders" target="_blank">Keybase</a></li>
+				<li> <a href="https://linkedin.com/in/bcleenders" target="_blank">Linkedin</a></li>
+				<li> Email: bcleenders<span>@</span>gmail.com</li>
+			</ul>
+			<p>
+				If you want to use PGP, my key fingerprint is:<br />
+				<tt>51FD DD52 4D8B FB33 7246  D467 0BB5 726B C83D 5640</tt>
+			</p>
+	    </div>
+
+	    <div class="spacer-m"></div>
+
+	    <!-- A block that jumps in size on larger screens, so it can fit 2 columns. -->
+	    <div class="block stretch">
 			<div>
+				<!-- This is a bit hacky - it shows only one of the two below; see CSS  -->
 				<h1 id="timeline-header-wide"><span>Work Experience</span> <span>Education</span></h1>
 				<h1 id="timeline-header-small"><span>Work Experience &amp; Education</span></h1>
 			</div>
 
+			<!-- Timeline, inspired by: https://codyhouse.co/gem/vertical-timeline/ -->
 			<section id="cd-timeline">
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img"><img src="img/spotify-logo.png"></div>
+					<div class="cd-timeline-content">
+						<h2>Senior Engineer</h2>
+						<h3>Spotify</h3>
+						<p>
+							I work on core infrastructure at Spotify, including:
+							<ul>
+								<li>DNS, both internal and external</li>
+								<li>Kubernetes cluster administration</li>
+								<li>Infrastructure automation with Puppet and Terraform</li>
+								<li>Incident management</li>
+							</ul>
+						</p>
+						<span class="cd-date">Feb 2019 - Present</span>
+					</div>
+				</div>
+
 				<div class="cd-timeline-block">
 					<div class="cd-timeline-img"><img src="img/spotify-logo.png"></div>
 					<div class="cd-timeline-content">
 						<h2>Data Infrastructure Engineer</h2>
 						<h3>Spotify</h3>
 						<p>
-							I build and maintain tools that help Spotify be a data-driven company.
+							I built and maintained tools to help Spotify be a data-driven company. Two of the main projects I was involved in are:
+							<ul>
+								<li>migrating from on-premise to Google Cloud Platform</li>
+								<li>design and implementation of infrastructure that supports GDPR</li>
+							</ul>
 						</p>
-						<span class="cd-date">Oct 2016 - Present</span>
+						<span class="cd-date">Oct 2016 - Feb 2019</span>
 					</div>
 				</div>
 
@@ -61,7 +103,7 @@
 						<h2>MSc. Data Intensive Computing</h2>
 						<h3>KTH Royal Institute of Technology</h3>
 						<p>
-							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Master thesis graded <span style="font-weight:bold">A</span><br />
+							Master thesis graded <span style="font-weight:bold">A</span><br />
 						</p>
 						<span class="cd-date">Aug 2015 - Aug 2016</span>
 					</div>
@@ -73,7 +115,7 @@
 						<h2>Intern</h2>
 						<h3>SICS Swedish ICT</h3>
 						<p>
-							I worked on HopsFS, a more scalable version of the Hadoop filesystem.
+							I worked on HopsFS, a distributed filesystem based on the Apache Hadoop distributed file system. My area of responsibility was support for heterogeneous storage: making the file system aware of differences in hardware (e.g. harddisks vs. flash storage) and optimizing distribution of files to maximize utilization of the hardware.
 						</p>
 						<span class="cd-date">Nov 2015 - June 2016</span>
 					</div>
@@ -84,6 +126,9 @@
 					<div class="cd-timeline-content">
 						<h2>MSc. Distributed Systems &amp; Services</h2>
 						<h3>Technische Universit&auml;t Berlin</h3>
+						<p>
+							My major, Distributed Systems and Services, focuses on a broad range of applications like electronic commerce, mobile services, online social networks, peer-to-peer systems and Web services.
+						</p>
 						<span class="cd-date">Oct 2014 - Oct 2015</span>
 					</div>
 				</div>
@@ -94,7 +139,7 @@
 						<h2>Backend developer</h2>
 						<h3>Gambify GmbH</h3>
 						<p>
-							In a two-man team, we built and maintained a scalable REST API.
+							Reimplementing the backend of the social betting platform Gambify, with a focus on scalability. This meant redesigning and rewriting the entire backend as a team of 3 engineers.
 						</p>
 						<span class="cd-date">Feb 2015 - July 2015</span>
 					</div>
@@ -105,22 +150,24 @@
 					<div class="cd-timeline-content">
 						<h2>BSc. Computer Science</h2>
 						<h3>University of Twente</h3>
-						<p>
-							<!-- <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> Enschede, The Netherlands<br /> -->
-							<i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Best paper award for bachelor thesis<br />
-							<i class="fa fa-star fa-fw" aria-hidden="true"></i> Extra curricular track: Excellence Stream Mathematics<br />
-							<i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> Bachelor thesis graded <span style="font-weight:bold">9/10</span><br />
-						</p>
+						<ul>
+							<li>Best paper award for bachelor thesis</li>
+							<li>Extra curricular track: Excellence Stream Mathematics</li>
+							<li>Minor in <span class="italic">"Social and Technological Philosophy"</span></li>
+							<li>Bachelor thesis <span class="italic">"Simple and Efficient Searchable Symmetric Encryption with Application"</span>, graded <span class="bold">9/10</span></li>
+						</ul>
 						<span class="cd-date">Aug 2011 - Aug 2014</span>
 					</div>
 				</div>
 
 			</section>
 		</div>
+
+	    <div class="spacer-m"></div>
+
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js"></script> <!-- Resource jQuery -->
-
+	<script src="js/life.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

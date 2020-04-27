@@ -1,0 +1,120 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #7f8c97;
+}
+
+body {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #e9f0f5;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2rem;
+  font-color: #000;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-color: #000;
+  margin-bottom: 1em;
+}
+
+ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+ul li {
+  list-style-position: outside;
+  margin-left: 1em;
+  margin-bottom: 0.3em;
+  font-size: 1em;
+}
+
+/* Ah, I miss html tags for these... */
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#world-container {
+  margin: 0px;
+  z-index: -10;
+  position: absolute;
+}
+
+#content {
+  z-index: 10;
+  max-width: 1240px;
+  padding-right: 35px;
+  padding-left: 35px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.spacer-m {
+  height: 150px;
+  display: block;
+}
+
+.spacer-s {
+  height: 75px;
+  display: block;
+}
+
+.modal {
+  height: 100%;
+  display: block;
+  padding-top: calc(50% - 300px);
+  padding-bottom: calc(50% - 300px);;
+}
+
+.modal-inner {
+  height: 300px;
+}
+
+.block {
+  /*
+    alpha works with opacity, so the alpha of 0.2 and 0.3 overlapping is:
+    1 - (1-0.2)*(1-0.3) = 0.44
+    make the combined value of `cd-timeline-content` and this be the same
+    as for "narrow", set this alpha to:
+    1 - (1-narrow)/(1-cd-timeline-content)
+  */
+  background-color: rgba(255, 255, 255, 0.5);
+
+  padding: 20px;
+
+  margin-left: 0px;
+  margin-right: 0px;
+
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1169px) {
+  .stretch {
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.narrow {
+  background-color: rgba(255, 255, 255, 0.85); /* Keep synced with block settings! */
+
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
