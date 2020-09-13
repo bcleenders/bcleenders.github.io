@@ -1,0 +1,61 @@
+<html>
+<body>
+	<div id="world-container">
+		<canvas id="world">
+			Your browser does not support the canvas element.
+		</canvas>
+	</div>
+
+	<script type="text/javascript">
+		canvas = document.getElementById("world");
+		ctx = this.canvas.getContext("2d");
+
+		ctx.canvas.width  = window.innerWidth;
+		ctx.canvas.height = document.documentElement.scrollHeight;
+
+		function colorCell(x, y, color) {
+			const
+				numberOfSides = 6,
+				size = 80,
+				xOffset = size,
+				yOffset = xOffset,
+				Xcenter = xOffset + 2 * size * x + (y % 2 == 1 ? size : 0),
+				Ycenter = yOffset + Math.sqrt(3) * size * y;
+
+			this.ctx.beginPath();
+
+			for (var i = 0; i <= numberOfSides; i += 1) {
+				// Start drawing the first point "underneath" the x-axis on the right, continue clockwise
+				const angle_rad = (i + 0.5) * 2 * Math.PI / numberOfSides;
+				this.ctx.lineTo(
+					Xcenter + size * Math.cos(angle_rad),
+					Ycenter + size * Math.sin(angle_rad)
+				);
+			}
+
+			this.ctx.fillStyle = color;
+			this.ctx.fill();
+		}
+
+		// Grey
+		colorCell(0, 0, "#000");
+		colorCell(0, 1, "#444");
+		colorCell(0, 2, "#888");
+
+		// Red
+		colorCell(1, 0, "#f00");
+		colorCell(1, 1, "#f44");
+		colorCell(1, 2, "#f88");
+
+		// Green
+		colorCell(2, 0, "#0f0");
+		colorCell(2, 1, "#4f4");
+		colorCell(2, 2, "#8f8");
+
+		// Blue
+		colorCell(3, 0, "#00f");
+		colorCell(3, 1, "#44f");
+		colorCell(3, 2, "#88f");
+	</script>
+</body>
+</html>
