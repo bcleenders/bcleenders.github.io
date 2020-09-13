@@ -1,7 +1,7 @@
 /*
 In the beginning, there was time.
 */
-const period = 500; // ms
+const period = 250; // ms
 
 /*
 Create a canvas to draw our world on.
