@@ -73,5 +73,5 @@ window.onresize = function() {
 		canvas.init();
 		world.resize(canvas.width, canvas.height);
 		canvas.drawWorld(world.getCells());
-	}, 250);
+	}, period);
 };

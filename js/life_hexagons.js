@@ -170,26 +170,37 @@ class World {
 		// For every cell in the old cells
 		for (var x = 0; x < this.cells.length; x++) {
 			for (var y = 0; y < this.cells[x].length; y++) {
-				// Check how many alive cells surround it
-				var n = 0;
+				// check who our neighbours are (/ and \ symbolize column relations, we are X):
+				//  .  .          .  .
+				//   \  \        /  / 
+				// .  X  .  or  .  X  .
+				//   /  /        \  \ 
+				//  .  .          .  .
+				// aka right- resp. left-leaning.
+				var is_left_leaning = (y % 2 == 0);
 
-				// Switch comparison logic a bit, depending on whether we're in an odd or even row
-				// - If we're in an even row, compare with left/right above us
-				// - If we're in an odd row, compare with left/right below us
-				// This is because the draw logic pushes even rows half a cell down for alignment
-				const coordinates = (x % 2 == 0) ? [
-					[-1, 0], [-1, 1], // The cells on our left (slightly below)
-					[0, -1], [0, 1],  // The cells above/below us
-					[1, 0], [1, 1]   // The cells to our right
-				] : [
-					[-1, -1], [-1, 0], // The cells on our left (slightly above)
-					[0, -1], [0, 1],  // The cells above/below us
-					[1, -1], [1, 0]   // The cells to our right
+				const left_leaning_neighbours = [
+					[1, 0], // to the right
+					[0, 1], // below (same 'column')
+					[-1, 1], [-1, 0], [-1, -1], // three items on column to the left
+					[0, -1] // above, same column
 				];
 
-				for (var i = coordinates.length - 1; i >= 0; i--) {
-					var dx = coordinates[i][0];
-					var dy = coordinates[i][1];
+				const right_leaning_neighbours = [
+					[1, 0], [1, 1], // right, moving down/clockwise
+					[0, 1], // above, same column
+					[-1, 0], // left
+					[0, -1], // above, same column
+					[1, -1] // and another one down
+				];
+
+				const neighbours = is_left_leaning ? left_leaning_neighbours : right_leaning_neighbours;
+
+				// Check how many alive cells surround it
+				var n = 0;
+				for (var i = neighbours.length - 1; i >= 0; i--) {
+					const dx = neighbours[i][0];
+					const dy = neighbours[i][1];
 					if (this.getCell(x + dx, y + dy) > 0) {
 						n++;
 					}
@@ -224,8 +235,8 @@ class World {
 	}
 
 	setCell(x, y, val) {
-		const xmod = x % this.cells.length;
-		const ymod = y % this.cells[xmod].length;
+		var xmod = Math.abs(x % this.cells.length);
+		var ymod = Math.abs(y % this.cells[xmod].length);
 		this.cells[xmod][ymod] = val;
 	}
 
@@ -287,15 +298,15 @@ class Cell {
 	}
 
 	static get width() {
-		return 9;
-	}
-
-	static get space() {
-		return 4;
+		return 10;
 	}
 }
 
 class Canvas {
+	static get backgroundColor() {
+		return "#e9f0f5";
+	}
+
 	constructor() {
 		this.canvas = document.getElementById("world");
 		this.ctx = this.canvas.getContext("2d");
@@ -310,12 +321,12 @@ class Canvas {
 		this.clear();
 
 		// Calculate how many cells wide/high our canvas is
-		this.numX = (this.ctx.canvas.width - Cell.space)/(Cell.width + Cell.space) | 0;
-		this.numY = this.ctx.canvas.height/(Cell.width + Cell.space) | 0;
+		this.numX = Math.floor(this.ctx.canvas.width / (2 * Cell.width)) - 1;
+		this.numY = Math.floor(this.ctx.canvas.height / ((Math.sqrt(3)) * Cell.width));
 
 		// To centre the cells, we may need an offset
 		// Round to int (| 0) to avoid drawing any half-transparent pixels
-		this.xOffset = (this.ctx.canvas.width - Cell.space) % (Cell.width + Cell.space) / 2 | 0;
+		this.canvasXOffset = ((this.ctx.canvas.width - (this.numX * 2 * Cell.width)) / 2) | 0;
 
 		// Draw an empty world so we see the cells immediately
 		this.drawWorld(World.empty(this.numX, this.numY));
@@ -334,22 +345,33 @@ class Canvas {
 		const
 			numberOfSides = 6,
 			size = Cell.width,
-			xOffset = size,
-			yOffset = xOffset,
-			Xcenter = xOffset + (0.5 * Math.PI + 0.15) * x * size,
-			heightOfHexagon = 1.95 * size,
-			Ycenter = yOffset + (x % 2 == 0 ? 0 : 0.5 * heightOfHexagon) + heightOfHexagon * y;
+			xOffset = this.canvasXOffset,
+			yOffset = size,
+			Xcenter = xOffset + 2 * size * x + (y % 2 == 1 ? size : 0),
+			Ycenter = yOffset + Math.sqrt(3) * size * y;
 
+		// Wipe to background color, to avoid artifacts of redraws when pixels are anti-aliased
 		this.ctx.beginPath();
-		this.ctx.moveTo(Math.round(Xcenter + size * Math.cos(0)), Math.round(Ycenter + size * Math.sin(0)));
-
-		for (var i = 1; i <= numberOfSides; i += 1) {
+		for (var i = 0; i <= numberOfSides; i += 1) {
+			// Start drawing the first point "underneath" the x-axis on the right, continue clockwise
+			const angle_rad = (i + 0.5) * 2 * Math.PI / numberOfSides;
 			this.ctx.lineTo(
-				Math.round(Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides)),
-				Math.round(Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides))
+				Xcenter + 1.1 * size * Math.cos(angle_rad),
+				Ycenter + 1.1 * size * Math.sin(angle_rad)
 			);
 		}
+		this.ctx.fillStyle = Canvas.backgroundColor;
+		this.ctx.fill();
 
+		this.ctx.beginPath();
+		for (var i = 0; i <= numberOfSides; i += 1) {
+			// Start drawing the first point "underneath" the x-axis on the right, continue clockwise
+			const angle_rad = (i + 0.5) * 2 * Math.PI / numberOfSides;
+			this.ctx.lineTo(
+				Xcenter + size * Math.cos(angle_rad),
+				Ycenter + size * Math.sin(angle_rad)
+			);
+		}
 		this.ctx.fillStyle = color;
 		this.ctx.fill();
 	}
