@@ -298,7 +298,7 @@ class Cell {
 	}
 
 	static get width() {
-		return 10;
+		return 8;
 	}
 }
 

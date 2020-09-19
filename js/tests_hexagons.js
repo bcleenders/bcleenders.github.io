@@ -49,47 +49,53 @@ QUnit.test("Get/set fields", function( assert ) {
 	}
 });
 
-QUnit.test("Evolution - looking 'up'", function( assert ) {
+QUnit.test("Evolution left/right-leaning'", function( assert ) {
+
+	/*
+	 *  0 0 0      0 0 0
+	 *   0 1 0      1 0 0
+	 *  0 1 0   => 0 2 0
+	 *   0 1 0      1 0 0
+	 *  0 0 0      0 0 0
+	 */
 	const start = new Pattern([
-		 [ , , , ,0], // should look 'up', so first one here should become alive (and 2nd too)
-		[1,1,1, ,0],
-		 [ , , , ,0],
-		[ , , , ,0]
+		[ , , , , ,0],
+		[ ,1,1,1, ,0],
+		[ , , , , ,0],
+		[ , , , , ,0]
 	].map(row => undefinedsToZero(row))); // convert undefined to 0
 
 	const world = new World(4, 5)
 		.addShape(start, 0, 0);
 	
 	const first = [
-		 [1,1, , ,0],
-		[ ,2, , ,0],
-		 [1,1, , ,0],
+		[ ,1, ,1,0],
+		[ , ,2, ,0],
+		[ , , , ,0],
 		[ , , , ,0]
 	].map(row => undefinedsToZero(row)); // convert undefined to 0
 	world.nextGen();
 	assert.deepEqual( world.getCells(), first, "Verifying first iteration" );
-});
 
 
-QUnit.test("Evolution - looking 'down'", function( assert ) {
-	const start = new Pattern([
-		 [ , , , ,0],
-		[ , , , ,0], // should look 'up', so first one here should become alive (and 2nd too)
-		 [1,1,1, ,0],
+	/*
+	 *  Next iteration we're back at the start, except our stable cell is now gen 3
+	 *
+	 *  0 0 0      0 0 0      0 0 0
+	 *   0 1 0      1 0 0      0 1 0
+	 *  0 1 0   => 0 2 0   => 0 3 0
+	 *   0 1 0      1 0 0      0 1 0
+	 *  0 0 0      0 0 0      0 0 0
+	 */
+
+	const second = [
 		[ , , , ,0],
-		 [ , , , ,0]
-	].map(row => undefinedsToZero(row))); // convert undefined to 0
-
-	const world = new World(5, 5)
-		.addShape(start, 0, 0);
-	
-	const first = [
-		 [ , , , ,0],
-		[ ,1,1, ,0],
-		 [ ,2, , ,0],
-		[ ,1,1, ,0],
-		 [ , , , ,0]
+		[ ,1,3,1,0],
+		[ , , , ,0],
+		[ , , , ,0]
 	].map(row => undefinedsToZero(row)); // convert undefined to 0
+
 	world.nextGen();
-	assert.deepEqual( world.getCells(), first, "Verifying first iteration" );
+	assert.deepEqual( world.getCells(), second, "Verifying second iteration" );
+
 });
